@@ -1,5 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://byvli4mj43l1q"]
+[gd_scene load_steps=12 format=3 uid="uid://byvli4mj43l1q"]
 
 [ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_qbamy"]
+[ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_gc6rr"]
+[ext_resource type="Texture2D" uid="uid://i8xkud7aku57" path="res://screens/lab/components/keyboard/keyboard_3/images/keyboard_3_key.png" id="3_n8ed6"]
+[ext_resource type="AudioStream" uid="uid://bmcqustu1x7au" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_A.ogg" id="4_5i3mi"]
+[ext_resource type="AudioStream" uid="uid://bf5hq6q4k8inx" path="res://screens/lab/components/keyboard/keyboard_3/audio/impact_randomizer.tres" id="4_8ootw"]
+[ext_resource type="AudioStream" uid="uid://cvcd72rj0iixk" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_B.ogg" id="5_wljcx"]
+[ext_resource type="AudioStream" uid="uid://c20b56lso0bjg" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_C.ogg" id="6_gsh2w"]
+[ext_resource type="AudioStream" uid="uid://culcxkghnhrrw" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_D.ogg" id="7_wbano"]
+[ext_resource type="AudioStream" uid="uid://dhgtfy017htom" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_E.ogg" id="8_u53qg"]
+[ext_resource type="AudioStream" uid="uid://b1ucav5t33usp" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_F.ogg" id="9_tht1y"]
+[ext_resource type="AudioStream" uid="uid://d02dp0ojqq6qu" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_G.ogg" id="10_j7sqp"]
 
 [node name="Keyboard3" instance=ExtResource("1_qbamy")]
+
+[node name="Key" parent="." index="1" instance=ExtResource("2_gc6rr")]
+texture = ExtResource("3_n8ed6")
+note = ExtResource("4_5i3mi")
+
+[node name="CollisionPolygon2D" parent="Key/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="Key2" parent="." index="2" instance=ExtResource("2_gc6rr")]
+position = Vector2(-300, 0)
+texture = ExtResource("3_n8ed6")
+note = ExtResource("5_wljcx")
+order = 2
+
+[node name="CollisionPolygon2D" parent="Key2/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="Key3" parent="." index="3" instance=ExtResource("2_gc6rr")]
+position = Vector2(-201, 0)
+texture = ExtResource("3_n8ed6")
+note = ExtResource("6_gsh2w")
+order = 3
+
+[node name="CollisionPolygon2D" parent="Key3/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="Key4" parent="." index="4" instance=ExtResource("2_gc6rr")]
+position = Vector2(304, 0)
+texture = ExtResource("3_n8ed6")
+note = ExtResource("7_wbano")
+order = 4
+
+[node name="CollisionPolygon2D" parent="Key4/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="Key5" parent="." index="5" instance=ExtResource("2_gc6rr")]
+position = Vector2(-99, 0)
+texture = ExtResource("3_n8ed6")
+note = ExtResource("8_u53qg")
+order = 5
+
+[node name="CollisionPolygon2D" parent="Key5/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="Key6" parent="." index="6" instance=ExtResource("2_gc6rr")]
+position = Vector2(202, 0)
+texture = ExtResource("3_n8ed6")
+note = ExtResource("9_tht1y")
+order = 6
+
+[node name="CollisionPolygon2D" parent="Key6/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="Key7" parent="." index="7" instance=ExtResource("2_gc6rr")]
+position = Vector2(101, 0)
+texture = ExtResource("3_n8ed6")
+note = ExtResource("10_j7sqp")
+order = 7
+
+[node name="CollisionPolygon2D" parent="Key7/Area2D" index="0"]
+polygon = PackedVector2Array(10, -90, -8, -91, -30, -79, -44, -57, -43, 47, -34, 70, -16, 84, 12, 85, 29, 75, 43, 51, 42, -55, 31, -78)
+
+[node name="ImpactPlayer" parent="." index="8"]
+stream = ExtResource("4_8ootw")
+
+[editable path="Key"]
+[editable path="Key2"]
+[editable path="Key3"]
+[editable path="Key4"]
+[editable path="Key5"]
+[editable path="Key6"]
+[editable path="Key7"]

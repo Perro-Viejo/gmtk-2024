@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cc7y1phjvb3dv"]
+
+[ext_resource type="AudioStream" uid="uid://cejviia73uduk" path="res://screens/lab/components/keyboard/keyboard_2/audio/impact/sfx_instrument02_impact_01.ogg" id="1_qkvx0"]
+[ext_resource type="AudioStream" uid="uid://c158nuvvx3p8w" path="res://screens/lab/components/keyboard/keyboard_2/audio/impact/sfx_instrument02_impact_02.ogg" id="2_ar3q4"]
+[ext_resource type="AudioStream" uid="uid://dun2myawb5ogl" path="res://screens/lab/components/keyboard/keyboard_2/audio/impact/sfx_instrument02_impact_03.ogg" id="3_3e2lo"]
+[ext_resource type="AudioStream" uid="uid://pfs7jl36quy6" path="res://screens/lab/components/keyboard/keyboard_2/audio/impact/sfx_instrument02_impact_04.ogg" id="4_jp7n5"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_qkvx0")
+stream_1/stream = ExtResource("2_ar3q4")
+stream_2/stream = ExtResource("3_3e2lo")
+stream_3/stream = ExtResource("4_jp7n5")

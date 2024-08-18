@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7wlvpnwknc67"]
+[gd_scene load_steps=10 format=3 uid="uid://c7wlvpnwknc67"]
 
 [ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_gg4pw"]
 [ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_mwr1l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dg12brcqpefwf" path="res://screens/lab/components/keyboard/keyboard_1/images/keyboard_1_key_b.png" id="5_8ka1q"]
 [ext_resource type="AudioStream" uid="uid://tdfsui8jn3f7" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_c.ogg" id="5_oddce"]
 [ext_resource type="Texture2D" uid="uid://3qvi26j76i7p" path="res://screens/lab/components/keyboard/keyboard_1/images/keyboard_1_key_c.png" id="7_6mwy2"]
+[ext_resource type="AudioStream" uid="uid://b8r5ty7y4dmoa" path="res://screens/lab/components/keyboard/keyboard_1/audio/impact_randomizer.tres" id="9_838f1"]
 
 [node name="Keyboard1" instance=ExtResource("1_gg4pw")]
 keys_order = "123"
@@ -36,6 +37,9 @@ order = 3
 
 [node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]
 polygon = PackedVector2Array(-28, 86, -43, 71, -43, -75, -29, -90, 23, -92, 40, -82, 42, 68, 30, 85)
+
+[node name="ImpactPlayer" parent="." index="1"]
+stream = ExtResource("9_838f1")
 
 [editable path="Keys/Key"]
 [editable path="Keys/Key2"]
