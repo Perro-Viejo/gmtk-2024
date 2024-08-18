@@ -6,3 +6,5 @@
 script = ExtResource("1_e0qrl")
 
 [node name="Keys" type="Node2D" parent="."]
+
+[node name="ImpactPlayer" type="AudioStreamPlayer" parent="."]

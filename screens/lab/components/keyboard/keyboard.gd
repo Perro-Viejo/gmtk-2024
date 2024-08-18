@@ -10,6 +10,7 @@ signal scale_failed
 var _pressed_keys := ""
 
 @onready var keys: Node2D = $Keys
+@onready var impact_player: AudioStreamPlayer = $ImpactPlayer
 
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 
 func _on_key_pressed(order: int) -> void:
+	impact_player.play()
 	_pressed_keys += str(order)
 	
 	if _pressed_keys.length() == keys_order.length():
