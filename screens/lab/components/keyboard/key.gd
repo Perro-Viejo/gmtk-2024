@@ -19,6 +19,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		and event.is_pressed()
 		and event.button_index == MOUSE_BUTTON_LEFT
 	):
-		audio_stream_player.stream = note
-		audio_stream_player.play()
+		if note:
+			audio_stream_player.stream = note
+			audio_stream_player.play()
 		pressed.emit(order)
