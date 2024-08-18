@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var world_1: AudioStreamMP3 = null
-@export var world_2: AudioStreamMP3 = null
-@export var world_3: AudioStreamMP3 = null
+@export var world_1: AudioStreamOggVorbis = null
+@export var world_2: AudioStreamOggVorbis = null
+@export var world_3: AudioStreamOggVorbis = null
 
 var current_world := 1
 

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_gg4pw"]
 [ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_mwr1l"]
-[ext_resource type="AudioStream" uid="uid://coxr6mcg61yx1" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_a.ogg" id="3_nfjyj"]
 [ext_resource type="Texture2D" uid="uid://b80x3r53cf1l4" path="res://screens/lab/components/keyboard/keyboard_1/images/keyboard_1_key_a.png" id="3_o6bm1"]
-[ext_resource type="AudioStream" uid="uid://do16vph4kivov" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_b.ogg" id="4_n4i16"]
+[ext_resource type="AudioStream" uid="uid://bb0uddotrawym" path="res://screens/lab/components/keyboard/keyboard_1/audio/sfx_stage01_A.ogg" id="4_nig7q"]
 [ext_resource type="Texture2D" uid="uid://dg12brcqpefwf" path="res://screens/lab/components/keyboard/keyboard_1/images/keyboard_1_key_b.png" id="5_8ka1q"]
-[ext_resource type="AudioStream" uid="uid://tdfsui8jn3f7" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_c.ogg" id="5_oddce"]
+[ext_resource type="AudioStream" uid="uid://ubydrnphonyt" path="res://screens/lab/components/keyboard/keyboard_1/audio/sfx_stage01_B.ogg" id="6_uwxtk"]
 [ext_resource type="Texture2D" uid="uid://3qvi26j76i7p" path="res://screens/lab/components/keyboard/keyboard_1/images/keyboard_1_key_c.png" id="7_6mwy2"]
+[ext_resource type="AudioStream" uid="uid://bgkmlxgthqpvb" path="res://screens/lab/components/keyboard/keyboard_1/audio/sfx_stage01_C.ogg" id="8_ur0sr"]
 [ext_resource type="AudioStream" uid="uid://b8r5ty7y4dmoa" path="res://screens/lab/components/keyboard/keyboard_1/audio/impact_randomizer.tres" id="9_838f1"]
 
 [node name="Keyboard1" instance=ExtResource("1_gg4pw")]
@@ -15,7 +15,7 @@ keys_order = "123"
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("2_mwr1l")]
 texture = ExtResource("3_o6bm1")
-note = ExtResource("3_nfjyj")
+note = ExtResource("4_nig7q")
 
 [node name="CollisionPolygon2D" parent="Keys/Key/Area2D" index="0"]
 polygon = PackedVector2Array(-42, 70, -44, -75, -32, -91, 25, -92, 42, -78, 44, 66, 31, 84, -29, 86)
@@ -23,7 +23,7 @@ polygon = PackedVector2Array(-42, 70, -44, -75, -32, -91, 25, -92, 42, -78, 44, 
 [node name="Key2" parent="Keys" index="1" instance=ExtResource("2_mwr1l")]
 position = Vector2(-97, 0)
 texture = ExtResource("5_8ka1q")
-note = ExtResource("4_n4i16")
+note = ExtResource("6_uwxtk")
 order = 2
 
 [node name="CollisionPolygon2D" parent="Keys/Key2/Area2D" index="0"]
@@ -32,7 +32,7 @@ polygon = PackedVector2Array(-31, 86, -45, 71, -44, -73, -31, -90, 24, -91, 39, 
 [node name="Key3" parent="Keys" index="2" instance=ExtResource("2_mwr1l")]
 position = Vector2(97, 0)
 texture = ExtResource("7_6mwy2")
-note = ExtResource("5_oddce")
+note = ExtResource("8_ur0sr")
 order = 3
 
 [node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]

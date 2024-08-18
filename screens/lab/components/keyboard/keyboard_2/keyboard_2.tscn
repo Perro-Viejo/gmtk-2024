@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_0gj6b"]
 [ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_2k5vm"]
 [ext_resource type="Texture2D" uid="uid://dgkvpo74sc5a5" path="res://screens/lab/components/keyboard/keyboard_2/images/keyboard_2_key.png" id="3_w5lmn"]
-[ext_resource type="AudioStream" uid="uid://dolue5y8qe6jj" path="res://screens/lab/components/keyboard/keyboard_2/audio/keyboard_2_note_a.ogg" id="4_1b3iw"]
-[ext_resource type="AudioStream" uid="uid://byja26jhdoog6" path="res://screens/lab/components/keyboard/keyboard_2/audio/keyboard_2_note_b.ogg" id="5_wnt2x"]
-[ext_resource type="AudioStream" uid="uid://bqyvx6rd06uj4" path="res://screens/lab/components/keyboard/keyboard_2/audio/keyboard_2_note_c.ogg" id="6_6st70"]
-[ext_resource type="AudioStream" uid="uid://jqtxtl3ekae2" path="res://screens/lab/components/keyboard/keyboard_2/audio/keyboard_2_note_d.ogg" id="7_t7vd5"]
-[ext_resource type="AudioStream" uid="uid://btv2c72k2bbhp" path="res://screens/lab/components/keyboard/keyboard_2/audio/keyboard_2_note_e.ogg" id="8_qldkf"]
+[ext_resource type="AudioStream" uid="uid://cafou1sca4654" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_A.ogg" id="4_v5xiy"]
+[ext_resource type="AudioStream" uid="uid://bwyjs2fp4830b" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_B.ogg" id="5_luyyh"]
+[ext_resource type="AudioStream" uid="uid://efykncab11xw" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_C.ogg" id="6_1llwx"]
+[ext_resource type="AudioStream" uid="uid://2m7y3loyuwdk" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_D.ogg" id="7_1plen"]
+[ext_resource type="AudioStream" uid="uid://cjha4i7sejld2" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_E.ogg" id="8_2sbxx"]
 [ext_resource type="AudioStream" uid="uid://cc7y1phjvb3dv" path="res://screens/lab/components/keyboard/keyboard_2/audio/impact_randomizer.tres" id="9_r3jlj"]
 
 [node name="Keyboard2" instance=ExtResource("1_0gj6b")]
@@ -15,14 +15,14 @@
 [node name="Key" parent="Keys" index="0" instance=ExtResource("2_2k5vm")]
 position = Vector2(-191, 0)
 texture = ExtResource("3_w5lmn")
-note = ExtResource("4_1b3iw")
+note = ExtResource("4_v5xiy")
 
 [node name="CollisionPolygon2D" parent="Keys/Key/Area2D" index="0"]
 polygon = PackedVector2Array(-44, 84, -43, -91, 41, -90, 44, 83)
 
 [node name="Key2" parent="Keys" index="1" instance=ExtResource("2_2k5vm")]
 texture = ExtResource("3_w5lmn")
-note = ExtResource("5_wnt2x")
+note = ExtResource("5_luyyh")
 order = 2
 
 [node name="CollisionPolygon2D" parent="Keys/Key2/Area2D" index="0"]
@@ -31,7 +31,7 @@ polygon = PackedVector2Array(-44, 84, -43, -91, 41, -90, 44, 83)
 [node name="Key3" parent="Keys" index="2" instance=ExtResource("2_2k5vm")]
 position = Vector2(191, 0)
 texture = ExtResource("3_w5lmn")
-note = ExtResource("6_6st70")
+note = ExtResource("6_1llwx")
 order = 3
 
 [node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]
@@ -40,7 +40,7 @@ polygon = PackedVector2Array(-44, 84, -43, -91, 41, -90, 44, 83)
 [node name="Key4" parent="Keys" index="3" instance=ExtResource("2_2k5vm")]
 position = Vector2(-95, 0)
 texture = ExtResource("3_w5lmn")
-note = ExtResource("7_t7vd5")
+note = ExtResource("7_1plen")
 order = 4
 
 [node name="CollisionPolygon2D" parent="Keys/Key4/Area2D" index="0"]
@@ -49,7 +49,7 @@ polygon = PackedVector2Array(-44, 84, -43, -91, 41, -90, 44, 83)
 [node name="Key5" parent="Keys" index="4" instance=ExtResource("2_2k5vm")]
 position = Vector2(95, 0)
 texture = ExtResource("3_w5lmn")
-note = ExtResource("8_qldkf")
+note = ExtResource("8_2sbxx")
 order = 5
 
 [node name="CollisionPolygon2D" parent="Keys/Key5/Area2D" index="0"]
