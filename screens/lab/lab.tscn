@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwsdtsu6jb1vf"]
+[gd_scene load_steps=17 format=3 uid="uid://dwsdtsu6jb1vf"]
 
 [ext_resource type="PackedScene" uid="uid://c7wlvpnwknc67" path="res://screens/lab/components/keyboard/keyboard_1/keyboard_1.tscn" id="1_7s0b5"]
 [ext_resource type="Script" path="res://screens/lab/lab.gd" id="1_wxqax"]
@@ -8,11 +8,16 @@
 [ext_resource type="AudioStream" uid="uid://3m78l1g27d8a" path="res://screens/lab/audio/mx_stage02.ogg" id="3_uwk6q"]
 [ext_resource type="AudioStream" uid="uid://bescdh08b3mrd" path="res://screens/lab/audio/mx_stage03.ogg" id="4_bprpm"]
 [ext_resource type="Texture2D" uid="uid://dq2qcru723dc2" path="res://screens/lab/images/world_3.png" id="5_0c5su"]
+[ext_resource type="Texture2D" uid="uid://pa7xkur1teg" path="res://screens/lab/images/bg_lab.png" id="5_dq3nu"]
+[ext_resource type="PackedScene" uid="uid://bw541k65cpco4" path="res://screens/lab/components/tv/tv.tscn" id="5_dyjrm"]
 [ext_resource type="Texture2D" uid="uid://1fbnu14ejjtt" path="res://screens/lab/images/world_4.png" id="6_bjut3"]
 [ext_resource type="PackedScene" uid="uid://8laiyjpi4ses" path="res://screens/lab/components/keyboard/keyboard_2/keyboard_2.tscn" id="6_eurmt"]
 [ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="6_qayd7"]
 [ext_resource type="Texture2D" uid="uid://mdj6i84q5w1w" path="res://screens/lab/images/btn_restart_normal.png" id="10_x8yb4"]
 [ext_resource type="PackedScene" uid="uid://byvli4mj43l1q" path="res://screens/lab/components/keyboard/keyboard_3/keyboard_3.tscn" id="11_u67hf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qt8y3"]
+viewport_path = NodePath("./TV")
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_wxqax")
@@ -20,16 +25,26 @@ world_1 = ExtResource("2_utyve")
 world_2 = ExtResource("3_uwk6q")
 world_3 = ExtResource("4_bprpm")
 
+[node name="TVScreen" type="Sprite2D" parent="."]
+position = Vector2(921, 341)
+scale = Vector2(0.187037, 0.187037)
+texture = SubResource("ViewportTexture_qt8y3")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_dq3nu")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Worlds" type="Node2D" parent="."]
+visible = false
 position = Vector2(1000, 492)
 
 [node name="World1" type="Sprite2D" parent="Worlds"]
 texture = ExtResource("2_5xvis")
 
 [node name="World2" type="Sprite2D" parent="Worlds"]
-position = Vector2(-4, 21)
+position = Vector2(-4, 3)
 texture = ExtResource("3_a4jeh")
 
 [node name="World3" type="Sprite2D" parent="Worlds"]
@@ -70,6 +85,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="FailedText" type="RichTextLabel" parent="UI/Main"]
 unique_name_in_owner = true
@@ -101,3 +117,7 @@ offset_top = -296.0
 offset_right = 361.0
 offset_bottom = -49.0
 texture_normal = ExtResource("10_x8yb4")
+
+[node name="TV" parent="." instance=ExtResource("5_dyjrm")]
+unique_name_in_owner = true
+handle_input_locally = false

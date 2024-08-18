@@ -6,8 +6,8 @@ extends Node2D
 
 var current_world := 1
 
+@onready var tv: SubViewport = %TV
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var worlds: Node2D = $Worlds
 @onready var keyboards: Node2D = %Keyboards
 # ---- UI ------------------------------------------------------------------------------------------
 @onready var failed_text: RichTextLabel = %FailedText
@@ -28,17 +28,12 @@ func _ready() -> void:
 
 
 func _start() -> void:
-	_start_worlds()
+	tv.hide_worlds()
 	_start_keyboards()
 	
 	# TODO: Play a tween?
-	worlds.get_child(0).modulate.a = 1.0
+	tv.start()
 	_show_keyboard()
-
-
-func _start_worlds() -> void:
-	for world: Sprite2D in worlds.get_children():
-		world.modulate.a = 0.0
 
 
 func _start_keyboards() -> void:
@@ -49,9 +44,9 @@ func _start_keyboards() -> void:
 func _on_scale_achieved() -> void:
 	_hide_keyboard()
 	
-	var prev_world := worlds.get_child(current_world - 1)
+	var prev_world: Sprite2D = tv.worlds.get_child(current_world - 1)
 	current_world += 1
-	var next_world := worlds.get_child(current_world - 1)
+	var next_world: Sprite2D = tv.worlds.get_child(current_world - 1)
 	audio_stream_player.stream = self["world_%d" % (current_world - 1)]
 	audio_stream_player.play()
 	

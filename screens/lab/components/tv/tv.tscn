@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw541k65cpco4"]
+
+[ext_resource type="PackedScene" uid="uid://bwfci2svxw801" path="res://screens/lab/components/world/world.tscn" id="1_if0g4"]
+[ext_resource type="Script" path="res://screens/lab/components/tv/tv.gd" id="1_toqhs"]
+[ext_resource type="PackedScene" uid="uid://ctrqmsr0pyume" path="res://vfx/post_processing_stack.tscn" id="2_gkibi"]
+
+[node name="TV" type="SubViewport"]
+size = Vector2i(1920, 1080)
+script = ExtResource("1_toqhs")
+
+[node name="Worlds" parent="." instance=ExtResource("1_if0g4")]
+
+[node name="PostProcessingStack" parent="." instance=ExtResource("2_gkibi")]
