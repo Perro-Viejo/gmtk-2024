@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwsdtsu6jb1vf"]
+[gd_scene load_steps=14 format=3 uid="uid://dwsdtsu6jb1vf"]
 
 [ext_resource type="PackedScene" uid="uid://c7wlvpnwknc67" path="res://screens/lab/components/keyboard/keyboard_1/keyboard_1.tscn" id="1_7s0b5"]
 [ext_resource type="Script" path="res://screens/lab/lab.gd" id="1_wxqax"]
 [ext_resource type="Texture2D" uid="uid://d2a3hwcnvm8rr" path="res://screens/lab/images/world_1.png" id="2_5xvis"]
 [ext_resource type="AudioStream" uid="uid://dtd3x0v30ffna" path="res://screens/lab/audio/world_1_to_2.mp3" id="2_cso1c"]
+[ext_resource type="AudioStream" uid="uid://cmaqcn0dfrqup" path="res://screens/lab/audio/world_2_to_3.mp3" id="3_38c38"]
 [ext_resource type="Texture2D" uid="uid://dx37thmeciymk" path="res://screens/lab/images/world_2.png" id="3_a4jeh"]
+[ext_resource type="AudioStream" uid="uid://dniwirs2by62m" path="res://screens/lab/audio/world_3_to_4.mp3" id="4_8ij0u"]
+[ext_resource type="Texture2D" uid="uid://dq2qcru723dc2" path="res://screens/lab/images/world_3.png" id="5_0c5su"]
+[ext_resource type="Texture2D" uid="uid://1fbnu14ejjtt" path="res://screens/lab/images/world_4.png" id="6_bjut3"]
+[ext_resource type="PackedScene" uid="uid://8laiyjpi4ses" path="res://screens/lab/components/keyboard/keyboard_2/keyboard_2.tscn" id="6_eurmt"]
 [ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="6_qayd7"]
+[ext_resource type="Texture2D" uid="uid://mdj6i84q5w1w" path="res://screens/lab/images/btn_restart_normal.png" id="10_x8yb4"]
+[ext_resource type="PackedScene" uid="uid://byvli4mj43l1q" path="res://screens/lab/components/keyboard/keyboard_3/keyboard_3.tscn" id="11_u67hf"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_wxqax")
 world_1 = ExtResource("2_cso1c")
+world_2 = ExtResource("3_38c38")
+world_3 = ExtResource("4_8ij0u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -23,11 +32,29 @@ texture = ExtResource("2_5xvis")
 position = Vector2(-4, 21)
 texture = ExtResource("3_a4jeh")
 
+[node name="World3" type="Sprite2D" parent="Worlds"]
+position = Vector2(-1, -1)
+texture = ExtResource("5_0c5su")
+
+[node name="World4" type="Sprite2D" parent="Worlds"]
+position = Vector2(1, -4)
+texture = ExtResource("6_bjut3")
+
 [node name="Keyboards" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Keyboard1" parent="Keyboards" instance=ExtResource("1_7s0b5")]
-position = Vector2(1000, 972)
+position = Vector2(1000, 1199)
+visible_y = 972.0
+hidden_y = 1199.0
+
+[node name="Keyboard2" parent="Keyboards" instance=ExtResource("6_eurmt")]
+position = Vector2(1000, 1200)
+keys_order = "12345"
+visible_y = 972.0
+hidden_y = 1200.0
+
+[node name="Keyboard3" parent="Keyboards" instance=ExtResource("11_u67hf")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -61,3 +88,12 @@ theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[shake]P E R D I T E S[/shake]"
 fit_content = true
+
+[node name="RestartBtn" type="TextureButton" parent="UI/Main"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 114.0
+offset_top = -296.0
+offset_right = 361.0
+offset_bottom = -49.0
+texture_normal = ExtResource("10_x8yb4")

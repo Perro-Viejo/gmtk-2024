@@ -4,6 +4,8 @@ signal scale_achieved
 signal scale_failed
 
 @export var keys_order := ""
+@export var visible_y := 0.0
+@export var hidden_y := 0.0
 
 var _pressed_keys := ""
 
