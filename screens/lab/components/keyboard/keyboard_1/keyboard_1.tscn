@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7wlvpnwknc67"]
+
+[ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_gg4pw"]
+[ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_mwr1l"]
+[ext_resource type="AudioStream" uid="uid://coxr6mcg61yx1" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_a.ogg" id="3_nfjyj"]
+[ext_resource type="Texture2D" uid="uid://dglgd2m01rcma" path="res://screens/lab/components/keyboard/keyboard_1/images/key.png" id="3_ufykd"]
+[ext_resource type="AudioStream" uid="uid://do16vph4kivov" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_b.ogg" id="4_n4i16"]
+[ext_resource type="AudioStream" uid="uid://tdfsui8jn3f7" path="res://screens/lab/components/keyboard/keyboard_1/audio/note_c.ogg" id="5_oddce"]
+
+[node name="Keyboard1" instance=ExtResource("1_gg4pw")]
+keys_order = "123"
+
+[node name="Key" parent="Keys" index="0" instance=ExtResource("2_mwr1l")]
+texture = ExtResource("3_ufykd")
+note = ExtResource("3_nfjyj")
+
+[node name="CollisionPolygon2D" parent="Keys/Key/Area2D" index="0"]
+polygon = PackedVector2Array(-42, 70, -44, -75, -32, -91, 25, -92, 42, -78, 44, 66, 31, 84, -29, 86)
+
+[node name="Key2" parent="Keys" index="1" instance=ExtResource("2_mwr1l")]
+position = Vector2(-97, 0)
+texture = ExtResource("3_ufykd")
+note = ExtResource("4_n4i16")
+order = 2
+
+[node name="CollisionPolygon2D" parent="Keys/Key2/Area2D" index="0"]
+polygon = PackedVector2Array(-31, 86, -45, 71, -44, -73, -31, -90, 24, -91, 39, -79, 42, 66, 30, 84)
+
+[node name="Key3" parent="Keys" index="2" instance=ExtResource("2_mwr1l")]
+position = Vector2(97, 0)
+texture = ExtResource("3_ufykd")
+note = ExtResource("5_oddce")
+order = 3
+
+[node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]
+polygon = PackedVector2Array(-28, 86, -43, 71, -43, -75, -29, -90, 23, -92, 40, -82, 42, 68, 30, 85)
+
+[editable path="Keys/Key"]
+[editable path="Keys/Key2"]
+[editable path="Keys/Key3"]
