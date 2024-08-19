@@ -11,6 +11,7 @@ var current_world := 1
 
 @onready var tv: SubViewport = %TV
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var pianos: Node2D = %Pianos
 @onready var keyboards: Node2D = %Keyboards
 # ---- UI ------------------------------------------------------------------------------------------
 @onready var failed_text: RichTextLabel = %FailedText
@@ -18,6 +19,7 @@ var current_world := 1
 
 
 func _ready() -> void:
+	#($TVScreen.texture as ViewportTexture).viewport_path = %TV.get_path()
 	restart_btn.set_meta("hidden_y", restart_btn.position.y)
 	
 	for keyboard: Node2D in keyboards.get_children():
@@ -97,14 +99,18 @@ func _restart() -> void:
 
 
 func _hide_keyboard() -> void:
+	var piano := pianos.get_child(current_world - 1)
 	var keyboard := keyboards.get_child(current_world - 1)
 	var keyboard_tween := create_tween()
 	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	keyboard_tween.tween_property(keyboard, "position:y", keyboard.hidden_y, 0.6)
+	keyboard_tween.tween_property(piano, "position:y", piano.hidden_y, 1.6)
+	keyboard_tween.tween_property(keyboard, "position:y", keyboard.hidden_y, 0.6).set_delay(1.0)
 
 
 func _show_keyboard() -> void:
+	var piano := pianos.get_child(current_world - 1)
 	var keyboard := keyboards.get_child(current_world - 1)
 	var keyboard_tween := create_tween()
 	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	keyboard_tween.tween_property(keyboard, "position:y", keyboard.visible_y, 0.6)
+	keyboard_tween.tween_property(piano, "position:y", piano.visible_y, 1.6)
+	keyboard_tween.tween_property(keyboard, "position:y", keyboard.visible_y, 0.6).set_delay(1.0)

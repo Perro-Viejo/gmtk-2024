@@ -5,6 +5,8 @@
 [node name="Keyboard" type="Node2D"]
 script = ExtResource("1_e0qrl")
 
+[node name="Bg" type="Sprite2D" parent="."]
+
 [node name="Keys" type="Node2D" parent="."]
 
 [node name="ImpactPlayer" type="AudioStreamPlayer" parent="."]
