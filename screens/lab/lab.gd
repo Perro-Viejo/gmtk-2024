@@ -3,6 +3,9 @@ extends Node2D
 @export var world_1: AudioStreamOggVorbis = null
 @export var world_2: AudioStreamOggVorbis = null
 @export var world_3: AudioStreamOggVorbis = null
+@export var alarm_start: AudioStreamOggVorbis = null
+@export var alarm_loop: AudioStreamOggVorbis = null
+@export var emergency_button_press: AudioStreamOggVorbis = null
 
 var current_world := 1
 
@@ -33,6 +36,7 @@ func _start() -> void:
 	
 	# TODO: Play a tween?
 	tv.start()
+	
 	_show_keyboard()
 
 
@@ -65,8 +69,9 @@ func _on_scale_achieved() -> void:
 func _on_scale_failed() -> void:
 	_hide_keyboard()
 	failed_text.show()
+	AudioManager.play_sound(alarm_start)
 	await get_tree().create_timer(3.0).timeout
-	
+	AudioManager.play_sound(alarm_loop, name)
 	restart_btn.disabled = false
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -76,6 +81,8 @@ func _on_scale_failed() -> void:
 
 
 func _restart() -> void:
+	AudioManager.play_sound(emergency_button_press)
+	AudioManager.stop_sound(alarm_loop, name)
 	restart_btn.disabled = true
 	failed_text.hide()
 	current_world = 1
