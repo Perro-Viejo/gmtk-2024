@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-AudioManager="*res://AudioManager.tscn"
+AudioManager="*res://audio_manager/audio_manager.tscn"
 
 [display]
 

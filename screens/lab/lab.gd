@@ -45,11 +45,12 @@ func _start() -> void:
 func _start_keyboards() -> void:
 	for keyboard: Node2D in keyboards.get_children():
 		keyboard.position.y = keyboard.hidden_y
+	
+	for piano: Node2D in pianos.get_children():
+		piano.position.y = piano.hidden_y
 
 
 func _on_scale_achieved() -> void:
-	_hide_keyboard()
-	
 	var prev_world: Sprite2D = tv.worlds.get_child(current_world - 1)
 	current_world += 1
 	var next_world: Sprite2D = tv.worlds.get_child(current_world - 1)
@@ -60,10 +61,13 @@ func _on_scale_achieved() -> void:
 	worlds_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_parallel(true)
 	worlds_tween.tween_property(prev_world, "modulate:a", 0.0, 12.0)
 	worlds_tween.tween_property(next_world, "modulate:a", 1.0, 12.0).set_delay(3.0)
-	await worlds_tween.finished
+	await audio_stream_player.finished
 	
 	if current_world == 4:
 		return
+	
+	_hide_keyboard()
+	await get_tree().create_timer(2.0).timeout
 	
 	_show_keyboard()
 
@@ -99,18 +103,18 @@ func _restart() -> void:
 
 
 func _hide_keyboard() -> void:
-	var piano := pianos.get_child(current_world - 1)
-	var keyboard := keyboards.get_child(current_world - 1)
+	var piano := pianos.get_child(current_world - 2)
+	var keyboard := keyboards.get_child(current_world - 2)
 	var keyboard_tween := create_tween()
-	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	keyboard_tween.tween_property(piano, "position:y", piano.hidden_y, 1.6)
-	keyboard_tween.tween_property(keyboard, "position:y", keyboard.hidden_y, 0.6).set_delay(1.0)
+	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN).set_parallel()
+	keyboard_tween.tween_property(piano, "position:y", piano.hidden_y, 1.0)
+	keyboard_tween.tween_property(keyboard, "position:y", keyboard.hidden_y, 0.8)
 
 
 func _show_keyboard() -> void:
 	var piano := pianos.get_child(current_world - 1)
 	var keyboard := keyboards.get_child(current_world - 1)
 	var keyboard_tween := create_tween()
-	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_parallel()
 	keyboard_tween.tween_property(piano, "position:y", piano.visible_y, 1.6)
-	keyboard_tween.tween_property(keyboard, "position:y", keyboard.visible_y, 0.6).set_delay(1.0)
+	keyboard_tween.tween_property(keyboard, "position:y", keyboard.visible_y, 1.6)

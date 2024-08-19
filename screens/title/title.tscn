@@ -136,8 +136,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [node name="CreditsBtn" type="Button" parent="UI"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
@@ -145,3 +143,5 @@ offset_left = 1659.0
 offset_top = 806.0
 offset_right = 1878.0
 offset_bottom = 1022.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
