@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://jrs8j1ddekon"]
+[gd_scene load_steps=6 format=3 uid="uid://jrs8j1ddekon"]
 
 [ext_resource type="Script" path="res://screens/title/title.gd" id="1_00htr"]
-[ext_resource type="AudioStream" uid="uid://dyjq131dk7yp" path="res://screens/lab/audio/amb_lab.ogg" id="2_3w564"]
 [ext_resource type="Texture2D" uid="uid://crblto0btmuty" path="res://screens/title/images/bg_title.png" id="2_elio7"]
-[ext_resource type="AudioStream" uid="uid://pmhfqy7o888q" path="res://screens/title/audio/sfx_transition_start.ogg" id="3_6vx83"]
 
 [sub_resource type="Animation" id="Animation_u0dou"]
 length = 0.001
@@ -107,8 +105,6 @@ _data = {
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_00htr")
-amb = ExtResource("2_3w564")
-transition = ExtResource("3_6vx83")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -131,5 +127,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

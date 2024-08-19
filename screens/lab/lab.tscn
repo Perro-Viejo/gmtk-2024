@@ -1,29 +1,35 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwsdtsu6jb1vf"]
+[gd_scene load_steps=20 format=3 uid="uid://dwsdtsu6jb1vf"]
 
 [ext_resource type="PackedScene" uid="uid://c7wlvpnwknc67" path="res://screens/lab/components/keyboard/keyboard_1/keyboard_1.tscn" id="1_7s0b5"]
 [ext_resource type="Script" path="res://screens/lab/lab.gd" id="1_wxqax"]
 [ext_resource type="Texture2D" uid="uid://d2a3hwcnvm8rr" path="res://screens/lab/images/world_1.png" id="2_5xvis"]
-[ext_resource type="AudioStream" uid="uid://c8wx3vrtse62s" path="res://screens/lab/audio/mx_stage01.ogg" id="2_utyve"]
+[ext_resource type="AudioStream" uid="uid://gr0i4fsnntnh" path="res://screens/lab/audio/mx_stage01.ogg" id="2_utyve"]
 [ext_resource type="Texture2D" uid="uid://dx37thmeciymk" path="res://screens/lab/images/world_2.png" id="3_a4jeh"]
-[ext_resource type="AudioStream" uid="uid://3m78l1g27d8a" path="res://screens/lab/audio/mx_stage02.ogg" id="3_uwk6q"]
-[ext_resource type="AudioStream" uid="uid://bescdh08b3mrd" path="res://screens/lab/audio/mx_stage03.ogg" id="4_bprpm"]
+[ext_resource type="AudioStream" uid="uid://d4c2ih7ltc44x" path="res://screens/lab/audio/mx_stage02.ogg" id="3_uwk6q"]
+[ext_resource type="AudioStream" uid="uid://cpei0777uihwt" path="res://screens/lab/audio/mx_stage03.ogg" id="4_bprpm"]
 [ext_resource type="Texture2D" uid="uid://dq2qcru723dc2" path="res://screens/lab/images/world_3.png" id="5_0c5su"]
+[ext_resource type="AudioStream" uid="uid://cayq7x8sanihy" path="res://screens/lab/audio/sfx_alarm_start.ogg" id="5_8u7rj"]
 [ext_resource type="Texture2D" uid="uid://pa7xkur1teg" path="res://screens/lab/images/bg_lab.png" id="5_dq3nu"]
 [ext_resource type="PackedScene" uid="uid://bw541k65cpco4" path="res://screens/lab/components/tv/tv.tscn" id="5_dyjrm"]
+[ext_resource type="AudioStream" uid="uid://8akyqdamak7a" path="res://screens/lab/audio/sfx_alarm_lp.ogg" id="6_5lb2c"]
 [ext_resource type="Texture2D" uid="uid://1fbnu14ejjtt" path="res://screens/lab/images/world_4.png" id="6_bjut3"]
 [ext_resource type="PackedScene" uid="uid://8laiyjpi4ses" path="res://screens/lab/components/keyboard/keyboard_2/keyboard_2.tscn" id="6_eurmt"]
 [ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="6_qayd7"]
+[ext_resource type="AudioStream" uid="uid://d2qbl64m64gg4" path="res://screens/lab/audio/sfx_emergencyButton_press.ogg" id="7_xi0hm"]
 [ext_resource type="Texture2D" uid="uid://mdj6i84q5w1w" path="res://screens/lab/images/btn_restart_normal.png" id="10_x8yb4"]
 [ext_resource type="PackedScene" uid="uid://byvli4mj43l1q" path="res://screens/lab/components/keyboard/keyboard_3/keyboard_3.tscn" id="11_u67hf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qt8y3"]
-viewport_path = NodePath("./TV")
+viewport_path = NodePath(".")
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_wxqax")
 world_1 = ExtResource("2_utyve")
 world_2 = ExtResource("3_uwk6q")
 world_3 = ExtResource("4_bprpm")
+alarm_start = ExtResource("5_8u7rj")
+alarm_loop = ExtResource("6_5lb2c")
+emergency_button_press = ExtResource("7_xi0hm")
 
 [node name="TVScreen" type="Sprite2D" parent="."]
 position = Vector2(921, 341)
