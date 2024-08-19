@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://jrs8j1ddekon"]
+[gd_scene load_steps=10 format=3 uid="uid://jrs8j1ddekon"]
 
 [ext_resource type="Script" path="res://screens/title/title.gd" id="1_00htr"]
 [ext_resource type="AudioStream" uid="uid://dyjq131dk7yp" path="res://screens/lab/audio/amb_lab.ogg" id="2_3w564"]
 [ext_resource type="Texture2D" uid="uid://crblto0btmuty" path="res://screens/title/images/bg_title.png" id="2_elio7"]
 [ext_resource type="AudioStream" uid="uid://pmhfqy7o888q" path="res://screens/title/audio/sfx_transition_start.ogg" id="3_6vx83"]
+[ext_resource type="AudioStream" uid="uid://bvpqwk5ao5i4l" path="res://screens/title/audio/mx_credits.ogg" id="4_d6b76"]
+[ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="5_a3x8e"]
 
 [sub_resource type="Animation" id="Animation_u0dou"]
 length = 0.001
@@ -109,11 +111,65 @@ _data = {
 script = ExtResource("1_00htr")
 amb = ExtResource("2_3w564")
 transition = ExtResource("3_6vx83")
+credits = ExtResource("4_d6b76")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hi66t")
 }
+
+[node name="Credits" type="Sprite2D" parent="."]
+modulate = Color(0.39881, 0.903387, 0.992507, 1)
+z_index = 1
+position = Vector2(874, 550)
+scale = Vector2(0.168333, 0.168333)
+texture = ExtResource("2_elio7")
+
+[node name="Mateo" type="RichTextLabel" parent="Credits"]
+offset_left = -3273.27
+offset_top = -2144.55
+offset_right = -671.267
+offset_bottom = -144.555
+pivot_offset = Vector2(1657.82, 1001.4)
+theme_override_fonts/normal_font = ExtResource("5_a3x8e")
+theme_override_fonts/bold_font = ExtResource("5_a3x8e")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
+] [p align=center] MateO RobayO
+Programacha"
+fit_content = true
+
+[node name="Tatan" type="RichTextLabel" parent="Credits"]
+offset_left = 801.981
+offset_top = -1865.35
+offset_right = 3403.98
+offset_bottom = 134.653
+pivot_offset = Vector2(1657.82, 1001.4)
+theme_override_fonts/normal_font = ExtResource("5_a3x8e")
+theme_override_fonts/bold_font = ExtResource("5_a3x8e")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
+] [p align=center] TatáN
+Streaming"
+fit_content = true
+
+[node name="Juan" type="RichTextLabel" parent="Credits"]
+offset_left = -1336.63
+offset_top = -41.5842
+offset_right = 1265.37
+offset_bottom = 1958.42
+pivot_offset = Vector2(1657.82, 1001.4)
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("5_a3x8e")
+theme_override_fonts/bold_font = ExtResource("5_a3x8e")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
+] [p align=center] JuaN GarciA
+MarácaS"
+fit_content = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2591, -703)

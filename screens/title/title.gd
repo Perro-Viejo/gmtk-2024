@@ -2,7 +2,7 @@ extends Node2D
 
 @export var amb: AudioStreamOggVorbis = null
 @export var transition: AudioStreamOggVorbis = null
-@export var nanai: AudioStreamOggVorbis = null
+@export var credits: AudioStreamOggVorbis = null
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var start_btn: Button = %StartBtn
@@ -25,4 +25,9 @@ func _start() -> void:
 
 
 func _show_credits() -> void:
-	pass
+	if not $Credits.visible:
+		$Credits.show()
+		AudioManager.play_sound(credits)
+	else:
+		AudioManager.stop_sound(credits)
+		$Credits.hide()
