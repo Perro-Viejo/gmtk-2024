@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwsdtsu6jb1vf"]
+[gd_scene load_steps=23 format=3 uid="uid://dwsdtsu6jb1vf"]
 
 [ext_resource type="PackedScene" uid="uid://c7wlvpnwknc67" path="res://screens/lab/components/keyboard/keyboard_1/keyboard_1.tscn" id="1_7s0b5"]
 [ext_resource type="Script" path="res://screens/lab/lab.gd" id="1_wxqax"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://mdj6i84q5w1w" path="res://screens/lab/images/btn_restart_normal.png" id="10_x8yb4"]
 [ext_resource type="Texture2D" uid="uid://cijxyegmn20bg" path="res://screens/lab/images/piano_3.png" id="11_tqxmd"]
 [ext_resource type="PackedScene" uid="uid://byvli4mj43l1q" path="res://screens/lab/components/keyboard/keyboard_3/keyboard_3.tscn" id="11_u67hf"]
+[ext_resource type="PackedScene" uid="uid://c0joqnxdyiwc5" path="res://screens/lab/components/old_man/old_man.tscn" id="13_65728"]
+[ext_resource type="Texture2D" uid="uid://blr58cdnnkors" path="res://screens/lab/images/lab_door.png" id="20_2w7ba"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qt8y3"]
 viewport_path = NodePath(".")
@@ -63,6 +65,13 @@ keys_order = "1234567"
 visible_y = 972.0
 hidden_y = 1203.0
 
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(325, 792)
+texture = ExtResource("20_2w7ba")
+
+[node name="OldMan" parent="." instance=ExtResource("13_65728")]
+position = Vector2(175, 586)
+
 [node name="Pianos" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 clip_children = 1
@@ -71,7 +80,6 @@ texture = ExtResource("9_28h45")
 
 [node name="Piano1" type="Sprite2D" parent="Pianos"]
 light_mask = 2
-position = Vector2(0, 495)
 texture = ExtResource("9_7mnmn")
 script = ExtResource("10_2vixb")
 visible_y = -6.0
@@ -139,8 +147,3 @@ texture_normal = ExtResource("10_x8yb4")
 [node name="TV" parent="." instance=ExtResource("5_dyjrm")]
 unique_name_in_owner = true
 handle_input_locally = false
-
-[node name="PianoMask" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(412, 852)
-texture = ExtResource("9_28h45")
