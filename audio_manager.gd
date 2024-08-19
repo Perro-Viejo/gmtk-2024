@@ -12,7 +12,7 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 	#pass
 
-func play_sound(stream: AudioStreamOggVorbis) -> void:
+func play_sound(stream: AudioStreamOggVorbis, ID: String = "") -> void:
 	if stream != null:
 		available_streams = manager_streams.filter(stream_is_available)
 		current_stream_player = available_streams[0]
@@ -20,6 +20,8 @@ func play_sound(stream: AudioStreamOggVorbis) -> void:
 	else:
 		print("AudioManager: Not a valid stream to play")
 	current_stream_player.play()
+	if ID != "":
+		current_stream_player.name = current_stream_player.name + "_" + ID
 
 func stop_sound (stream: AudioStreamOggVorbis) -> void:
 	if stream != null:
