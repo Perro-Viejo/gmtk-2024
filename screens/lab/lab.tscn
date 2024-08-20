@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://byvli4mj43l1q" path="res://screens/lab/components/keyboard/keyboard_3/keyboard_3.tscn" id="11_u67hf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qt8y3"]
-viewport_path = NodePath("TV")
+viewport_path = NodePath(".")
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_wxqax")

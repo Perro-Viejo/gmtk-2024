@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jrs8j1ddekon"]
+[gd_scene load_steps=14 format=3 uid="uid://jrs8j1ddekon"]
 
 [ext_resource type="Script" path="res://screens/title/title.gd" id="1_00htr"]
 [ext_resource type="AudioStream" uid="uid://dyjq131dk7yp" path="res://screens/lab/audio/amb_lab.ogg" id="2_3w564"]
@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://pmhfqy7o888q" path="res://screens/title/audio/sfx_transition_start.ogg" id="3_6vx83"]
 [ext_resource type="AudioStream" uid="uid://bvpqwk5ao5i4l" path="res://screens/title/audio/mx_credits.ogg" id="4_d6b76"]
 [ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="5_a3x8e"]
+[ext_resource type="AudioStream" uid="uid://xh0054gjjdch" path="res://screens/title/audio/sfx_tv_turn_switch.ogg" id="5_mhhkv"]
+[ext_resource type="Texture2D" uid="uid://c0g472csjxt7k" path="res://screens/title/images/perroviejo_logo.png" id="8_prsk5"]
+[ext_resource type="Texture2D" uid="uid://dbpdg4lfl052h" path="res://screens/title/images/voidcat_logo.png" id="9_0rrnc"]
 
 [sub_resource type="Animation" id="Animation_u0dou"]
 length = 0.001
@@ -52,6 +55,174 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits/Credits:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-23.762, -2661.39)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits/Credits:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits/Credits:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Credits/Mateo:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5073.27, 897.03)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Credits/Tatan:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5097.03, 891.089)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Credits/Mateo:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Credits/Mateo:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Credits/Juan:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5477.23, 956.436)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Credits/Tatan:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Credits/Tatan:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Credits/Juan:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Credits/PerroViejo:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 7)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Credits/Void:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Credits/Juan:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ymolg"]
@@ -101,8 +272,196 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 
+[sub_resource type="Animation" id="Animation_5sahb"]
+resource_name = "Credits"
+length = 34.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_d6b76")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/Credits:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 5.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-23.762, -2661.39), Vector2(-23.762, -30), Vector2(-23.762, -30), Vector2(-23.762, -1693.37)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Credits:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.03333, 3.03333, 3.5, 3.53333, 4, 5.76667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(0.9, 0.9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits/Credits:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.03333, 3.53333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits/Mateo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.1, 8.03333, 8.1, 9.2, 9.23333, 10.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5073.27, 897.03), Vector2(2221.78, 897.03), Vector2(2221.78, 897.03), Vector2(2221.78, 897.03), Vector2(2221.78, 897.03), Vector2(-2203.96, -879.208)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits/Tatan:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(8.06667, 9.76667, 10.4333, 12, 19.9333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5097.03, 891.089), Vector2(2203.96, 891.089), Vector2(2203.96, 891.089), Vector2(2203.96, -932.673), Vector2(2203.96, -932.673)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits/Mateo:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(9.13333, 10.0333, 13.5667, 13.7333, 14.0333, 30.5, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1.3, 1.3), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1e-05, 1e-05)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Credits/Mateo:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(9.26667, 10.0333, 20, 30.5, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -6.28319, -6.28319, -25.1327, -31.4159]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Credits/Juan:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(10.1, 12, 13.5333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5477.23, 956.436), Vector2(2150.5, 956.436), Vector2(-77.2275, 261.386)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Credits/Tatan:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(10.5, 12, 13.5667, 13.7333, 14.0333, 30.6667, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1.3, 1.3), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1e-05, 1e-05)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Credits/Tatan:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(10.5667, 12, 20, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 6.28319, 31.4159]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Credits/Juan:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(12.1333, 13.5, 13.5667, 13.7333, 14.0333, 30.3667, 30.8667, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.713953, 0.713953), Vector2(0.7, 0.7), Vector2(1.3, 1.3), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(0.8, 0.8), Vector2(1e-05, 1e-05)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Credits/PerroViejo:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 14, 19.0667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(7, 7)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Credits/Void:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 14.1, 19.0667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(4, 4)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Credits/Juan:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(20, 25.7333, 29.8667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hi66t"]
 _data = {
+"Credits": SubResource("Animation_5sahb"),
 "RESET": SubResource("Animation_u0dou"),
 "zoom_out": SubResource("Animation_ymolg")
 }
@@ -112,6 +471,7 @@ script = ExtResource("1_00htr")
 amb = ExtResource("2_3w564")
 transition = ExtResource("3_6vx83")
 credits = ExtResource("4_d6b76")
+turn_switch = ExtResource("5_mhhkv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -119,17 +479,49 @@ libraries = {
 }
 
 [node name="Credits" type="Sprite2D" parent="."]
-modulate = Color(0.39881, 0.903387, 0.992507, 1)
+visible = false
 z_index = 1
 position = Vector2(874, 550)
 scale = Vector2(0.168333, 0.168333)
 texture = ExtResource("2_elio7")
 
-[node name="Mateo" type="RichTextLabel" parent="Credits"]
-offset_left = -3273.27
-offset_top = -2144.55
-offset_right = -671.267
-offset_bottom = -144.555
+[node name="Credits" type="Node2D" parent="Credits"]
+position = Vector2(-23.762, -2661.39)
+
+[node name="CreditsTXT" type="RichTextLabel" parent="Credits/Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3731.1
+offset_top = -1597.03
+offset_right = 3439.9
+offset_bottom = 3402.97
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1657.82, 1001.4)
+theme_override_fonts/normal_font = ExtResource("5_a3x8e")
+theme_override_fonts/bold_font = ExtResource("5_a3x8e")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[tornado radius=20.0 freq=13.0] [font_size=1000
+] [p align=center] Credits"
+fit_content = true
+
+[node name="Mateo" type="Node2D" parent="Credits"]
+position = Vector2(-5073.27, 897.03)
+
+[node name="MateoTXT" type="RichTextLabel" parent="Credits/Mateo"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1301.0
+offset_top = -1285.15
+offset_right = 1301.0
+offset_bottom = 714.853
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(1657.82, 1001.4)
 theme_override_fonts/normal_font = ExtResource("5_a3x8e")
 theme_override_fonts/bold_font = ExtResource("5_a3x8e")
@@ -140,11 +532,21 @@ text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
 Programacha"
 fit_content = true
 
-[node name="Tatan" type="RichTextLabel" parent="Credits"]
-offset_left = 801.981
-offset_top = -1865.35
-offset_right = 3403.98
-offset_bottom = 134.653
+[node name="Tatan" type="Node2D" parent="Credits"]
+position = Vector2(-5097.03, 891.089)
+
+[node name="TatanTXT" type="RichTextLabel" parent="Credits/Tatan"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1301.0
+offset_top = -1000.0
+offset_right = 1301.0
+offset_bottom = 1000.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(1657.82, 1001.4)
 theme_override_fonts/normal_font = ExtResource("5_a3x8e")
 theme_override_fonts/bold_font = ExtResource("5_a3x8e")
@@ -155,11 +557,21 @@ text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
 Streaming"
 fit_content = true
 
-[node name="Juan" type="RichTextLabel" parent="Credits"]
-offset_left = -1336.63
-offset_top = -41.5842
-offset_right = 1265.37
-offset_bottom = 1958.42
+[node name="Juan" type="Node2D" parent="Credits"]
+position = Vector2(-5477.23, 956.436)
+
+[node name="JuanTXT" type="RichTextLabel" parent="Credits/Juan"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1301.0
+offset_top = -1000.0
+offset_right = 1301.0
+offset_bottom = 1000.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(1657.82, 1001.4)
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("5_a3x8e")
@@ -170,6 +582,16 @@ text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
 ] [p align=center] JuaN GarciA
 MarácaS"
 fit_content = true
+
+[node name="PerroViejo" type="Sprite2D" parent="Credits"]
+position = Vector2(-2293.07, 819.802)
+scale = Vector2(7, 7)
+texture = ExtResource("8_prsk5")
+
+[node name="Void" type="Sprite2D" parent="Credits"]
+position = Vector2(2198.02, 796.04)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("9_0rrnc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2591, -703)

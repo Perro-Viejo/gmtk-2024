@@ -73,6 +73,7 @@ func _on_scale_achieved() -> void:
 
 
 func _on_scale_failed() -> void:
+	tv.set_static(true)
 	_hide_keyboard()
 	failed_text.show()
 	AudioManager.play_sound(alarm_start)
@@ -89,6 +90,7 @@ func _on_scale_failed() -> void:
 func _restart() -> void:
 	AudioManager.play_sound(emergency_button_press)
 	AudioManager.stop_sound(alarm_loop, name)
+	tv.set_static(false)
 	restart_btn.disabled = true
 	failed_text.hide()
 	current_world = 1

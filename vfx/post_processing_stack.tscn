@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctrqmsr0pyume"]
+[gd_scene load_steps=20 format=3 uid="uid://ctrqmsr0pyume"]
 
 [ext_resource type="Shader" path="res://common/shaders/sharpen.gdshader" id="1_ybrub"]
 [ext_resource type="Shader" path="res://common/shaders/fisheye.gdshader" id="2_yj28u"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://common/shaders/vhs_color_bleed.gdshader" id="5_38f3k"]
 [ext_resource type="Shader" path="res://common/shaders/vignette.gdshader" id="6_xr7m8"]
 [ext_resource type="Shader" path="res://common/shaders/grain.gdshader" id="7_so3lg"]
+[ext_resource type="Shader" path="res://common/shaders/noise.gdshader" id="8_qnup3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_42vu3"]
 shader = ExtResource("1_ybrub")
@@ -19,7 +20,7 @@ shader_parameter/effect_amount = 1.5
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1m3a"]
 shader = ExtResource("3_8pjt1")
 shader_parameter/levels = 3
-shader_parameter/spread = 0.003
+shader_parameter/spread = 0.01
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7b6o2"]
 frequency = 0.4394
@@ -55,6 +56,10 @@ shader_parameter/strength = 0.6
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hyboy"]
 shader = ExtResource("7_so3lg")
 shader_parameter/strength = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2miep"]
+shader = ExtResource("8_qnup3")
+shader_parameter/amount = 100.0
 
 [node name="PostProcessingStack" type="CanvasLayer"]
 
@@ -145,3 +150,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Noise" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Noise"]
+material = SubResource("ShaderMaterial_2miep")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

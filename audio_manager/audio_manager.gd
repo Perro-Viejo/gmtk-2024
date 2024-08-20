@@ -26,8 +26,10 @@ func play_sound(stream: AudioStreamOggVorbis, ID: String = "") -> void:
 func stop_sound (stream: AudioStreamOggVorbis, ID: String = "") -> void:
 	if stream != null:
 		manager_streams.filter(stream_is_playing)
-		check_player_stream(stream, manager_streams.filter(stream_is_playing)).name = current_stream_player.name.replace("_" + ID, "")
-		check_player_stream(stream, manager_streams.filter(stream_is_playing)).stop()
+		if ID != "":
+			check_player_stream(stream, manager_streams.filter(stream_is_playing)).name = current_stream_player.name.replace("_" + ID, "")
+		if check_player_stream(stream, manager_streams.filter(stream_is_playing)) != null:
+			check_player_stream(stream, manager_streams.filter(stream_is_playing)).stop()
 		
 	else:
 		print("AudioManager: Not a valid stream to stop")
