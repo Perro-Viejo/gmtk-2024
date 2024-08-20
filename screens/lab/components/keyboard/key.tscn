@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfmigvaog6p3b"]
+[gd_scene load_steps=3 format=3 uid="uid://cfmigvaog6p3b"]
 
 [ext_resource type="Script" path="res://screens/lab/components/keyboard/key.gd" id="1_afxww"]
+[ext_resource type="Script" path="res://common/scripts/hotspot.gd" id="2_qj31t"]
 
 [node name="Key" type="Sprite2D"]
 script = ExtResource("1_afxww")
@@ -9,5 +10,6 @@ script = ExtResource("1_afxww")
 unique_name_in_owner = true
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qj31t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

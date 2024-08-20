@@ -1,7 +1,8 @@
-[gd_scene load_steps=124 format=3 uid="uid://c0joqnxdyiwc5"]
+[gd_scene load_steps=125 format=3 uid="uid://c0joqnxdyiwc5"]
 
 [ext_resource type="Texture2D" uid="uid://da6qc211unpdh" path="res://screens/lab/components/old_man/images/old_man_idle.png" id="1_jj1f5"]
 [ext_resource type="Texture2D" uid="uid://b1qpaust6dbok" path="res://screens/lab/components/old_man/images/old_man_scared.png" id="2_m330r"]
+[ext_resource type="Texture2D" uid="uid://byivfr4hfs10d" path="res://screens/lab/images/chain.png" id="3_sanyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_23y2b"]
 atlas = ExtResource("1_jj1f5")
@@ -860,3 +861,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_lq0np")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Chain" type="Sprite2D" parent="."]
+position = Vector2(-93, 187)
+texture = ExtResource("3_sanyf")

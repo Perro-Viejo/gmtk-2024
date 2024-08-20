@@ -1,74 +1,99 @@
-[gd_scene load_steps=12 format=3 uid="uid://byvli4mj43l1q"]
+[gd_scene load_steps=19 format=3 uid="uid://byvli4mj43l1q"]
 
 [ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_qbamy"]
-[ext_resource type="Texture2D" uid="uid://dcuepcoiwi82o" path="res://screens/lab/components/keyboard/keyboard_3/images/keyboard_3.png" id="2_02oh8"]
+[ext_resource type="Texture2D" uid="uid://de6ee8rhe22bf" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_bg.png" id="2_e2d1l"]
 [ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_gc6rr"]
 [ext_resource type="AudioStream" uid="uid://bmcqustu1x7au" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_A.ogg" id="4_5i3mi"]
 [ext_resource type="AudioStream" uid="uid://bf5hq6q4k8inx" path="res://screens/lab/components/keyboard/keyboard_3/audio/impact_randomizer.tres" id="4_8ootw"]
+[ext_resource type="Texture2D" uid="uid://bpvn1ia3l3cxv" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_4.png" id="4_g8sd4"]
 [ext_resource type="AudioStream" uid="uid://cvcd72rj0iixk" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_B.ogg" id="5_wljcx"]
+[ext_resource type="Texture2D" uid="uid://cosee8fo5rhp1" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_1.png" id="6_8j5is"]
 [ext_resource type="AudioStream" uid="uid://c20b56lso0bjg" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_C.ogg" id="6_gsh2w"]
 [ext_resource type="AudioStream" uid="uid://culcxkghnhrrw" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_D.ogg" id="7_wbano"]
+[ext_resource type="Texture2D" uid="uid://cthedmvb5bfqt" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_2.png" id="8_n3ehc"]
 [ext_resource type="AudioStream" uid="uid://dhgtfy017htom" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_E.ogg" id="8_u53qg"]
 [ext_resource type="AudioStream" uid="uid://b1ucav5t33usp" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_F.ogg" id="9_tht1y"]
 [ext_resource type="AudioStream" uid="uid://d02dp0ojqq6qu" path="res://screens/lab/components/keyboard/keyboard_3/audio/sfx_stage03_G.ogg" id="10_j7sqp"]
+[ext_resource type="Texture2D" uid="uid://0a2jw6qnlwvn" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_7.png" id="10_unbnn"]
+[ext_resource type="Texture2D" uid="uid://dsbic0jydf1r1" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_3.png" id="12_qutau"]
+[ext_resource type="Texture2D" uid="uid://dhmlmkoch612h" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_6.png" id="14_b0241"]
+[ext_resource type="Texture2D" uid="uid://coanj4iryjvn0" path="res://screens/lab/components/keyboard/keyboard_3/images/piano_3_key_5.png" id="16_5ylic"]
 
 [node name="Keyboard3" instance=ExtResource("1_qbamy")]
 
 [node name="Bg" parent="." index="0"]
-texture = ExtResource("2_02oh8")
+texture = ExtResource("2_e2d1l")
+
+[node name="Keys" parent="." index="1"]
+position = Vector2(0, -5)
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("2_gc6rr")]
+position = Vector2(6, 20)
+texture = ExtResource("4_g8sd4")
 note = ExtResource("4_5i3mi")
 
 [node name="CollisionPolygon2D" parent="Keys/Key/Area2D" index="0"]
+position = Vector2(-5, -20)
 polygon = PackedVector2Array(-37, -39, -37, 79, 47, 79, 46, -39)
 
 [node name="Key2" parent="Keys" index="1" instance=ExtResource("2_gc6rr")]
-position = Vector2(-300, 0)
+position = Vector2(-252, 19)
+texture = ExtResource("6_8j5is")
 note = ExtResource("5_wljcx")
 order = 2
 
 [node name="CollisionPolygon2D" parent="Keys/Key2/Area2D" index="0"]
+position = Vector2(-48, -21)
 polygon = PackedVector2Array(4, -39, 3, 79, 83, 79, 83, -39)
 
 [node name="Key3" parent="Keys" index="2" instance=ExtResource("2_gc6rr")]
-position = Vector2(-201, 0)
+position = Vector2(-170, 19)
+texture = ExtResource("8_n3ehc")
 note = ExtResource("6_gsh2w")
 order = 3
 
 [node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]
+position = Vector2(-30, -21)
 polygon = PackedVector2Array(-10, -38, -11, 79, 71, 79, 71, -38)
 
 [node name="Key4" parent="Keys" index="3" instance=ExtResource("2_gc6rr")]
-position = Vector2(304, 0)
+position = Vector2(269, 19)
+texture = ExtResource("10_unbnn")
 note = ExtResource("7_wbano")
 order = 4
 
 [node name="CollisionPolygon2D" parent="Keys/Key4/Area2D" index="0"]
+position = Vector2(37, -20)
 polygon = PackedVector2Array(-77, -37, -79, 79, 5, 79, 4, -37)
 
 [node name="Key5" parent="Keys" index="4" instance=ExtResource("2_gc6rr")]
-position = Vector2(-99, 0)
+position = Vector2(-80, 20)
+texture = ExtResource("12_qutau")
 note = ExtResource("8_u53qg")
 order = 5
 
 [node name="CollisionPolygon2D" parent="Keys/Key5/Area2D" index="0"]
+position = Vector2(-16, -20)
 polygon = PackedVector2Array(-26, -38, -27, 79, 57, 79, 58, -38)
 
 [node name="Key6" parent="Keys" index="5" instance=ExtResource("2_gc6rr")]
-position = Vector2(202, 0)
+position = Vector2(183, 20)
+texture = ExtResource("14_b0241")
 note = ExtResource("9_tht1y")
 order = 6
 
 [node name="CollisionPolygon2D" parent="Keys/Key6/Area2D" index="0"]
+position = Vector2(20, -19)
 polygon = PackedVector2Array(-63, -38, -64, 79, 21, 79, 19, -37)
 
 [node name="Key7" parent="Keys" index="6" instance=ExtResource("2_gc6rr")]
-position = Vector2(101, 0)
+position = Vector2(96, 21)
+texture = ExtResource("16_5ylic")
 note = ExtResource("10_j7sqp")
 order = 7
 
 [node name="CollisionPolygon2D" parent="Keys/Key7/Area2D" index="0"]
+position = Vector2(7, -21)
 polygon = PackedVector2Array(-50, -38, -50, 79, 34, 78, 33, -38)
 
 [node name="ImpactPlayer" parent="." index="2"]
