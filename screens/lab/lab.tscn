@@ -38,7 +38,7 @@ gradient = SubResource("Gradient_d3l2y")
 width = 1920
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qt8y3"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("TV")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b7kp"]
 atlas = ExtResource("20_4dfl7")

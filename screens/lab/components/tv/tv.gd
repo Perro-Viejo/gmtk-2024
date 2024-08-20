@@ -52,7 +52,7 @@ func show_empty_world() -> void:
 
 
 func play_credits() -> void:
-	if $CreditsScene/AnimationPlayer.is_playing():
+	if $CreditsScene.visible:
 		$CreditsScene/AnimationPlayer.stop()
 		$CreditsScene.hide()
 		$EmptyWorld.show()

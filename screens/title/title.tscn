@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jrs8j1ddekon"]
+[gd_scene load_steps=14 format=3 uid="uid://jrs8j1ddekon"]
 
 [ext_resource type="Script" path="res://screens/title/title.gd" id="1_00htr"]
 [ext_resource type="AudioStream" uid="uid://dyjq131dk7yp" path="res://screens/lab/audio/amb_lab.ogg" id="2_3w564"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://pmhfqy7o888q" path="res://screens/title/audio/sfx_transition_start.ogg" id="3_6vx83"]
 [ext_resource type="AudioStream" uid="uid://bvpqwk5ao5i4l" path="res://screens/title/audio/mx_credits.ogg" id="4_d6b76"]
 [ext_resource type="AudioStream" uid="uid://xh0054gjjdch" path="res://screens/title/audio/sfx_tv_turn_switch.ogg" id="5_mhhkv"]
+[ext_resource type="Texture2D" uid="uid://cp7nnyya3ne6e" path="res://screens/title/images/tv_switch.png" id="7_k5r3n"]
+[ext_resource type="Texture2D" uid="uid://cifitcxcqd0qi" path="res://screens/title/images/tv_knob.png" id="8_rquxt"]
 [ext_resource type="PackedScene" uid="uid://bw541k65cpco4" path="res://screens/lab/components/tv/tv.tscn" id="10_ruhb4"]
 
 [sub_resource type="Animation" id="Animation_u0dou"]
@@ -109,7 +111,7 @@ _data = {
 }
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ctg6g"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("TV")
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_00htr")
@@ -117,6 +119,8 @@ amb = ExtResource("2_3w564")
 transition = ExtResource("3_6vx83")
 credits = ExtResource("4_d6b76")
 turn_switch = ExtResource("5_mhhkv")
+metadata/_edit_vertical_guides_ = [1768.0]
+metadata/_edit_horizontal_guides_ = [913.0]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -132,6 +136,14 @@ texture = SubResource("ViewportTexture_ctg6g")
 position = Vector2(-2591, -703)
 texture = ExtResource("2_elio7")
 offset = Vector2(3603.99, 2020.22)
+
+[node name="TvSwitch" type="Sprite2D" parent="Overlay"]
+position = Vector2(4353, 1287)
+texture = ExtResource("7_k5r3n")
+
+[node name="TvKnob" type="Sprite2D" parent="Overlay"]
+position = Vector2(4359, 1618)
+texture = ExtResource("8_rquxt")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

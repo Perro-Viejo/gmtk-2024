@@ -31,12 +31,19 @@ func _start() -> void:
 	tv.set_static(true)
 	animation_player.play("zoom_out")
 	AudioManager.play_sound(transition)
+	$Overlay/TvSwitch.flip_v = true
+	start_btn.pressed.disconnect(_start)
 	await animation_player.animation_finished
 	
 	tv.set_static(false)
+	$Overlay/TvSwitch.flip_v = false
 	get_tree().change_scene_to_file("res://screens/lab/lab.tscn")
 
 
 func _show_credits() -> void:
+	if $Overlay/TvKnob.flip_h == true:
+		$Overlay/TvKnob.flip_h = false
+	else:
+		$Overlay/TvKnob.flip_h = true
 	AudioManager.play_sound(turn_switch)
 	tv.play_credits()
