@@ -23,12 +23,13 @@ var current_world := 1
 
 
 func _ready() -> void:
-	if ($TVScreen.texture as ViewportTexture).viewport_path == NodePath("."):
-		($TVScreen.texture as ViewportTexture).viewport_path = $TV.get_path()
+	if ($TVScreen.texture as ViewportTexture).viewport_path != NodePath("TV"):
+		($TVScreen.texture as ViewportTexture).viewport_path = NodePath("TV")
 	
 	if Engine.is_editor_hint():
 		return
 	
+	restart_btn.scale = Vector2.ZERO
 	restart_btn.set_meta("hidden_y", restart_btn.position.y)
 	bulb.set_meta("hidden_y", bulb.position.y)
 	
@@ -84,20 +85,18 @@ func _on_scale_achieved() -> void:
 
 func _on_scale_failed() -> void:
 	tv.set_static(true)
-	var bulb_tween := create_tween()
-	bulb_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	bulb_tween.tween_property(bulb, "position:y", 148, 2.0).set_delay(0.5)
 	AudioManager.play_sound(alarm_start)
 	await get_tree().create_timer(3.0).timeout
 	
 	AudioManager.play_sound(alarm_loop, name)
+	var bulb_tween := create_tween()
+	bulb_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	bulb_tween.tween_property(bulb, "position:y", 148, 1.0)
 	
 	restart_btn.disabled = false
 	var restart_btn_tween := create_tween()
-	restart_btn_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	restart_btn_tween.tween_property(
-		restart_btn, "position:y", restart_btn.get_meta("hidden_y") + 256, 0.5
-	).from_current()
+	restart_btn_tween.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	restart_btn_tween.tween_property(restart_btn, "scale", Vector2.ONE, 1.0).from(Vector2.ZERO)
 
 
 func _restart() -> void:
@@ -111,11 +110,9 @@ func _restart() -> void:
 	bulb_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	bulb_tween.tween_property(bulb, "position:y", -178, 0.5)
 	
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(
-		restart_btn, "position:y", restart_btn.get_meta("hidden_y"), 0.5
-	).from_current()
+	var restart_btn_tween := create_tween()
+	restart_btn_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	restart_btn_tween.tween_property(restart_btn, "scale", Vector2.ZERO, 0.3).from(Vector2.ONE)
 	
 	_start()
 
