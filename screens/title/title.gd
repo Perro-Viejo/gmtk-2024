@@ -14,8 +14,8 @@ extends Node2D
 
 
 func _ready() -> void:
-	if ($TVScreen.texture as ViewportTexture).viewport_path == NodePath("."):
-		($TVScreen.texture as ViewportTexture).viewport_path = $TV.get_path()
+	if ($TVScreen.texture as ViewportTexture).viewport_path != NodePath("TV"):
+		($TVScreen.texture as ViewportTexture).viewport_path = NodePath("TV")
 	
 	if Engine.is_editor_hint():
 		return

@@ -1,8 +1,9 @@
-[gd_scene load_steps=125 format=3 uid="uid://c0joqnxdyiwc5"]
+[gd_scene load_steps=126 format=3 uid="uid://c0joqnxdyiwc5"]
 
 [ext_resource type="Texture2D" uid="uid://da6qc211unpdh" path="res://screens/lab/components/old_man/images/old_man_idle.png" id="1_jj1f5"]
 [ext_resource type="Texture2D" uid="uid://b1qpaust6dbok" path="res://screens/lab/components/old_man/images/old_man_scared.png" id="2_m330r"]
 [ext_resource type="Texture2D" uid="uid://byivfr4hfs10d" path="res://screens/lab/images/chain.png" id="3_sanyf"]
+[ext_resource type="Script" path="res://screens/lab/components/old_man/old_man_hotspot.gd" id="4_p55se"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_23y2b"]
 atlas = ExtResource("1_jj1f5")
@@ -852,16 +853,22 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_10a5d")
 }],
-"loop": true,
+"loop": false,
 "name": &"scared",
 "speed": 60.0
 }]
 
 [node name="OldMan" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_lq0np")
-animation = &"idle"
+animation = &"scared"
 autoplay = "idle"
 
 [node name="Chain" type="Sprite2D" parent="."]
 position = Vector2(-93, 187)
 texture = ExtResource("3_sanyf")
+
+[node name="Hotspot" type="Area2D" parent="."]
+script = ExtResource("4_p55se")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotspot"]
+polygon = PackedVector2Array(-202, 179, -185, 147, -155, 137, -124, 146, -103, 170, -83, 165, -39, 165, -30, 158, -43, 132, -65, 130, -73, 116, -48, 74, -68, 52, -41, 43, -100, 0, -99, -17, -84, -38, -93, -51, -87, -73, -86, -113, -75, -130, -98, -130, -89, -165, -39, -184, 43, -160, 45, -124, 69, -92, 56, -78, 58, -38, 76, -13, 64, 11, 56, 36, 71, 42, 55, 66, 98, 114, 93, 130, 69, 140, 60, 129, 49, 153, 59, 166, 56, 181, 19, 173, 8, 185, -22, 179, -34, 186, -66, 189, -80, 187, -102, 196, -108, 214, -132, 232, -162, 237, -195, 221)
