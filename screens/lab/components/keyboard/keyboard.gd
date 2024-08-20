@@ -23,9 +23,22 @@ func _on_key_pressed(order: int) -> void:
 	_pressed_keys += str(order)
 	
 	if _pressed_keys.length() == keys_order.length():
+		await get_tree().create_timer(0.2).timeout
+		
+		disable()
 		# Check if the scale is the correct one
 		if _pressed_keys == keys_order:
 			scale_achieved.emit()
 		else:
 			scale_failed.emit()
 		_pressed_keys = ""
+
+
+func disable() -> void:
+	for key: Sprite2D in keys.get_children():
+		key.disable()
+
+
+func enable() -> void:
+	for key: Sprite2D in keys.get_children():
+		key.enable()

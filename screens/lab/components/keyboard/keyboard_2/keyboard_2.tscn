@@ -1,56 +1,74 @@
-[gd_scene load_steps=10 format=3 uid="uid://8laiyjpi4ses"]
+[gd_scene load_steps=15 format=3 uid="uid://8laiyjpi4ses"]
 
 [ext_resource type="PackedScene" uid="uid://d2xo20gccvs0i" path="res://screens/lab/components/keyboard/keyboard.tscn" id="1_0gj6b"]
-[ext_resource type="Texture2D" uid="uid://d4n2retd87axk" path="res://screens/lab/components/keyboard/keyboard_2/images/keyboard_2.png" id="2_2cnon"]
 [ext_resource type="PackedScene" uid="uid://cfmigvaog6p3b" path="res://screens/lab/components/keyboard/key.tscn" id="2_2k5vm"]
+[ext_resource type="Texture2D" uid="uid://dd4xqe542jyw5" path="res://screens/lab/components/keyboard/keyboard_2/images/piano_2_bg.png" id="2_ghw6p"]
+[ext_resource type="Texture2D" uid="uid://d2yq80d6md0dk" path="res://screens/lab/components/keyboard/keyboard_2/images/piano_2_key_1.png" id="4_naoxu"]
 [ext_resource type="AudioStream" uid="uid://cafou1sca4654" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_A.ogg" id="4_v5xiy"]
 [ext_resource type="AudioStream" uid="uid://bwyjs2fp4830b" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_B.ogg" id="5_luyyh"]
 [ext_resource type="AudioStream" uid="uid://efykncab11xw" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_C.ogg" id="6_1llwx"]
+[ext_resource type="Texture2D" uid="uid://c28sdqojgcsmq" path="res://screens/lab/components/keyboard/keyboard_2/images/piano_2_key_3.png" id="6_np2p6"]
 [ext_resource type="AudioStream" uid="uid://2m7y3loyuwdk" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_D.ogg" id="7_1plen"]
 [ext_resource type="AudioStream" uid="uid://cjha4i7sejld2" path="res://screens/lab/components/keyboard/keyboard_2/audio/sfx_stage02_E.ogg" id="8_2sbxx"]
+[ext_resource type="Texture2D" uid="uid://d3r3eh8u6qwkr" path="res://screens/lab/components/keyboard/keyboard_2/images/piano_2_key_5.png" id="8_38jb6"]
 [ext_resource type="AudioStream" uid="uid://cc7y1phjvb3dv" path="res://screens/lab/components/keyboard/keyboard_2/audio/impact_randomizer.tres" id="9_r3jlj"]
+[ext_resource type="Texture2D" uid="uid://cri0dwkaa2vnq" path="res://screens/lab/components/keyboard/keyboard_2/images/piano_2_key_2.png" id="10_6882t"]
+[ext_resource type="Texture2D" uid="uid://be00rxwougbhe" path="res://screens/lab/components/keyboard/keyboard_2/images/piano_2_key_4.png" id="12_r8orn"]
 
 [node name="Keyboard2" instance=ExtResource("1_0gj6b")]
 
 [node name="Bg" parent="." index="0"]
-texture = ExtResource("2_2cnon")
+texture = ExtResource("2_ghw6p")
+
+[node name="Keys" parent="." index="1"]
+position = Vector2(17, 0)
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("2_2k5vm")]
-position = Vector2(-191, 0)
+position = Vector2(-214, 0)
+texture = ExtResource("4_naoxu")
 note = ExtResource("4_v5xiy")
 
 [node name="CollisionPolygon2D" parent="Keys/Key/Area2D" index="0"]
+position = Vector2(-5, -2)
 polygon = PackedVector2Array(-44, 65, -46, -61, 59, -77, 55, 83)
 
 [node name="Key2" parent="Keys" index="1" instance=ExtResource("2_2k5vm")]
+texture = ExtResource("6_np2p6")
 note = ExtResource("5_luyyh")
 order = 2
 
 [node name="CollisionPolygon2D" parent="Keys/Key2/Area2D" index="0"]
+position = Vector2(-21, 1)
 polygon = PackedVector2Array(-39, 86, -32, -86, 64, -87, 63, 85)
 
 [node name="Key3" parent="Keys" index="2" instance=ExtResource("2_2k5vm")]
-position = Vector2(191, 0)
+position = Vector2(182.5, 0)
+texture = ExtResource("8_38jb6")
 note = ExtResource("6_1llwx")
 order = 3
 
 [node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]
+position = Vector2(-11, -5)
 polygon = PackedVector2Array(-33, 64, -40, -61, 59, -62, 63, 74)
 
 [node name="Key4" parent="Keys" index="3" instance=ExtResource("2_2k5vm")]
-position = Vector2(-95, 0)
+position = Vector2(-108, 0)
+texture = ExtResource("10_6882t")
 note = ExtResource("7_1plen")
 order = 4
 
 [node name="CollisionPolygon2D" parent="Keys/Key4/Area2D" index="0"]
+position = Vector2(-12, -3)
 polygon = PackedVector2Array(-35, 73, -32, -66, 58, -70, 51, 77)
 
 [node name="Key5" parent="Keys" index="4" instance=ExtResource("2_2k5vm")]
-position = Vector2(95, 0)
+position = Vector2(92.5, 0)
+texture = ExtResource("12_r8orn")
 note = ExtResource("8_2sbxx")
 order = 5
 
 [node name="CollisionPolygon2D" parent="Keys/Key5/Area2D" index="0"]
+position = Vector2(-15, 1)
 polygon = PackedVector2Array(-28, 66, -25, -70, 50, -70, 59, 69)
 
 [node name="ImpactPlayer" parent="." index="2"]

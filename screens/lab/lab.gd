@@ -9,18 +9,23 @@ extends Node2D
 
 var current_world := 1
 
-@onready var tv: SubViewport = %TV
+@onready var tv: SubViewport = $TV
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var pianos: Node2D = %Pianos
 @onready var keyboards: Node2D = %Keyboards
+@onready var bulb: AnimatedSprite2D = %Bulb
+@onready var left_door: Sprite2D = %LeftDoor
+@onready var right_door: Sprite2D = %RightDoor
 # ---- UI ------------------------------------------------------------------------------------------
 @onready var failed_text: RichTextLabel = %FailedText
 @onready var restart_btn: TextureButton = %RestartBtn
 
 
 func _ready() -> void:
-	#($TVScreen.texture as ViewportTexture).viewport_path = %TV.get_path()
+	if ($TVScreen.texture as ViewportTexture).viewport_path == NodePath("."):
+		($TVScreen.texture as ViewportTexture).viewport_path = $TV.get_path()
 	restart_btn.set_meta("hidden_y", restart_btn.position.y)
+	bulb.set_meta("hidden_y", bulb.position.y)
 	
 	for keyboard: Node2D in keyboards.get_children():
 		keyboard.scale_achieved.connect(_on_scale_achieved)
@@ -35,11 +40,11 @@ func _ready() -> void:
 func _start() -> void:
 	tv.hide_worlds()
 	_start_keyboards()
-	
-	# TODO: Play a tween?
 	tv.start()
 	
-	_show_keyboard()
+	keyboards.get_child(0).enable()
+	keyboards.get_child(0).position.y = keyboards.get_child(0).visible_y
+	pianos.get_child(0).position.y = pianos.get_child(0).visible_y
 
 
 func _start_keyboards() -> void:
@@ -74,15 +79,18 @@ func _on_scale_achieved() -> void:
 
 func _on_scale_failed() -> void:
 	tv.set_static(true)
-	_hide_keyboard()
-	failed_text.show()
+	var bulb_tween := create_tween()
+	bulb_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	bulb_tween.tween_property(bulb, "position:y", 148, 2.0).set_delay(0.5)
 	AudioManager.play_sound(alarm_start)
 	await get_tree().create_timer(3.0).timeout
+	
 	AudioManager.play_sound(alarm_loop, name)
+	
 	restart_btn.disabled = false
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(
+	var restart_btn_tween := create_tween()
+	restart_btn_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	restart_btn_tween.tween_property(
 		restart_btn, "position:y", restart_btn.get_meta("hidden_y") + 256, 0.5
 	).from_current()
 
@@ -92,8 +100,11 @@ func _restart() -> void:
 	AudioManager.stop_sound(alarm_loop, name)
 	tv.set_static(false)
 	restart_btn.disabled = true
-	failed_text.hide()
 	current_world = 1
+	
+	var bulb_tween := create_tween()
+	bulb_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	bulb_tween.tween_property(bulb, "position:y", -178, 0.5)
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -105,6 +116,14 @@ func _restart() -> void:
 
 
 func _hide_keyboard() -> void:
+	# Open the door
+	var door_tween := create_tween()
+	door_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_parallel()
+	door_tween.tween_property(left_door, "position:x", -85, 0.8)
+	door_tween.tween_property(right_door, "position:x", 132, 0.8)
+	await door_tween.finished
+	
+	# Hide the piano and the keyboard
 	var piano := pianos.get_child(current_world - 2)
 	var keyboard := keyboards.get_child(current_world - 2)
 	var keyboard_tween := create_tween()
@@ -120,3 +139,11 @@ func _show_keyboard() -> void:
 	keyboard_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_parallel()
 	keyboard_tween.tween_property(piano, "position:y", piano.visible_y, 1.6)
 	keyboard_tween.tween_property(keyboard, "position:y", keyboard.visible_y, 1.6)
+	await keyboard_tween.finished
+	
+	# Close the door
+	var door_tween := create_tween()
+	door_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_parallel()
+	door_tween.tween_property(left_door, "position:x", 0, 0.8)
+	door_tween.tween_property(right_door, "position:x", 0, 0.8)
+	await door_tween.finished

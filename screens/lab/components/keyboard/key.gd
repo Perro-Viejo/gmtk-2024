@@ -10,24 +10,25 @@ signal pressed(order: int)
 
 
 func _ready() -> void:
-	area_2d.input_event.connect(_on_input_event)
-	area_2d.mouse_entered.connect(
-		func () -> void:
-			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	)
-	area_2d.mouse_exited.connect(
-		func () -> void:
-			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	)
+	area_2d.clicked.connect(_on_clicked)
 
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if (
-		event is InputEventMouseButton
-		and event.is_pressed()
-		and event.button_index == MOUSE_BUTTON_LEFT
-	):
-		if note:
-			audio_stream_player.stream = note
-			audio_stream_player.play()
-		pressed.emit(order)
+func _on_clicked() -> void:
+	disable()
+	var tween := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position:y", position.y + 6, 0.1)
+	tween.tween_property(self, "position:y", position.y, 0.05).set_ease(Tween.EASE_IN)
+	audio_stream_player.stream = note
+	audio_stream_player.play()
+	pressed.emit(order)
+	await tween.finished
+	
+	enable()
+
+
+func disable() -> void:
+	area_2d.input_pickable = false
+
+
+func enable() -> void:
+	area_2d.input_pickable = true
