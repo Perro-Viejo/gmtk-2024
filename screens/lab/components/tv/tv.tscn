@@ -23,17 +23,6 @@ tv_off = ExtResource("5_1o81w")
 [node name="CreditsScene" parent="." instance=ExtResource("8_2yakg")]
 visible = false
 
-[node name="Credits" parent="CreditsScene/Credits" index="0"]
-position = Vector2(-23.762, -1693.37)
-rotation = 6.28319
-scale = Vector2(0.9, 0.9)
-
-[node name="Mateo" parent="CreditsScene/Credits" index="1"]
-position = Vector2(414.582, 897.03)
-
-[node name="PerroViejo" parent="CreditsScene/Credits" index="4"]
-scale = Vector2(1.00069e-05, 1.00069e-05)
-
 [node name="PostProcessingStack" parent="." instance=ExtResource("2_gkibi")]
 
 [node name="EmptyWorld" type="Sprite2D" parent="."]
