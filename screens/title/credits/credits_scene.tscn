@@ -263,8 +263,8 @@ theme_override_fonts/bold_font = ExtResource("2_svgbp")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
-] [p align=center] MateO RobayO
-Programacha"
+] [p align=center] CarenalgA
+ChirriadaS"
 fit_content = true
 
 [node name="Tatan" type="Node2D" parent="Credits"]
@@ -289,7 +289,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[pulse freq=3.0 color=#ffffff40 ease=-2.0] [font_size=500
 ] [p align=center] TatáN
-Streaming"
+ArtemañaS"
 fit_content = true
 
 [node name="Juan" type="Node2D" parent="Credits"]
