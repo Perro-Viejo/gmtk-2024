@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export var amb: AudioStreamOggVorbis = null
@@ -15,6 +16,10 @@ extends Node2D
 func _ready() -> void:
 	if ($TVScreen.texture as ViewportTexture).viewport_path == NodePath("."):
 		($TVScreen.texture as ViewportTexture).viewport_path = $TV.get_path()
+	
+	if Engine.is_editor_hint():
+		return
+	
 	tv.show_empty_world()
 	start_btn.pressed.connect(_start)
 	AudioManager.play_sound(amb)

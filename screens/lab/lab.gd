@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export var world_1: AudioStreamOggVorbis = null
@@ -24,6 +25,10 @@ var current_world := 1
 func _ready() -> void:
 	if ($TVScreen.texture as ViewportTexture).viewport_path == NodePath("."):
 		($TVScreen.texture as ViewportTexture).viewport_path = $TV.get_path()
+	
+	if Engine.is_editor_hint():
+		return
+	
 	restart_btn.set_meta("hidden_y", restart_btn.position.y)
 	bulb.set_meta("hidden_y", bulb.position.y)
 	
