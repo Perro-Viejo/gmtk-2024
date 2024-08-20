@@ -14,12 +14,12 @@ func _ready() -> void:
 	$Worlds.hide()
 
 
-func start() -> void:
+func start(world := 0) -> void:
 	$CreditsScene.hide()
 	$EmptyWorld.hide()
 	$Worlds.show()
 	# TODO: Play a tween?
-	worlds.get_child(0).modulate.a = 1.0
+	worlds.get_child(world).modulate.a = 1.0
 	AudioManager.play_sound(tv_idle)
 
 
