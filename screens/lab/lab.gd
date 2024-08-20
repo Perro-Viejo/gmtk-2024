@@ -17,6 +17,7 @@ var current_world := 1
 @onready var bulb: AnimatedSprite2D = %Bulb
 @onready var left_door: Sprite2D = %LeftDoor
 @onready var right_door: Sprite2D = %RightDoor
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 # ---- UI ------------------------------------------------------------------------------------------
 @onready var failed_text: RichTextLabel = %FailedText
 @onready var restart_btn: TextureButton = %RestartBtn
@@ -44,13 +45,14 @@ func _ready() -> void:
 
 
 func _start() -> void:
+	animation_player.play("RESET")
 	tv.hide_worlds()
 	_start_keyboards()
-	tv.start()
+	tv.start(current_world - 1)
 	
-	keyboards.get_child(0).enable()
-	keyboards.get_child(0).position.y = keyboards.get_child(0).visible_y
-	pianos.get_child(0).position.y = pianos.get_child(0).visible_y
+	keyboards.get_child(current_world - 1).enable()
+	keyboards.get_child(current_world - 1).position.y = keyboards.get_child(0).visible_y
+	pianos.get_child(current_world - 1).position.y = pianos.get_child(0).visible_y
 
 
 func _start_keyboards() -> void:
@@ -72,6 +74,10 @@ func _on_scale_achieved() -> void:
 	worlds_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_parallel(true)
 	worlds_tween.tween_property(prev_world, "modulate:a", 0.0, 12.0)
 	worlds_tween.tween_property(next_world, "modulate:a", 1.0, 12.0).set_delay(3.0)
+	
+	if current_world == 4:
+		animation_player.play("ending")
+	
 	await audio_stream_player.finished
 	
 	if current_world == 4:
@@ -97,14 +103,19 @@ func _on_scale_failed() -> void:
 	var restart_btn_tween := create_tween()
 	restart_btn_tween.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	restart_btn_tween.tween_property(restart_btn, "scale", Vector2.ONE, 1.0).from(Vector2.ZERO)
+	
+	$OldMan.sprite_frames.set_animation_loop(&"scared", true)
+	$OldMan.play(&"scared")
 
 
 func _restart() -> void:
+	$OldMan.sprite_frames.set_animation_loop(&"scared", false)
+	$OldMan.play(&"idle")
 	AudioManager.play_sound(emergency_button_press)
 	AudioManager.stop_sound(alarm_loop, name)
 	tv.set_static(false)
 	restart_btn.disabled = true
-	current_world = 1
+	#current_world -= 1
 	
 	var bulb_tween := create_tween()
 	bulb_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
