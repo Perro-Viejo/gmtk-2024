@@ -64,6 +64,7 @@ func _start_keyboards() -> void:
 
 
 func _on_scale_achieved() -> void:
+	$Petri.play(&"shaking")
 	var prev_world: Sprite2D = tv.worlds.get_child(current_world - 1)
 	current_world += 1
 	var next_world: Sprite2D = tv.worlds.get_child(current_world - 1)
@@ -80,6 +81,7 @@ func _on_scale_achieved() -> void:
 	
 	await audio_stream_player.finished
 	
+	$Petri.play(&"idle")
 	if current_world == 4:
 		return
 	
@@ -90,6 +92,7 @@ func _on_scale_achieved() -> void:
 
 
 func _on_scale_failed() -> void:
+	$Petri.play(&"flashing")
 	tv.set_static(true)
 	AudioManager.play_sound(alarm_start)
 	await get_tree().create_timer(3.0).timeout
@@ -109,6 +112,7 @@ func _on_scale_failed() -> void:
 
 
 func _restart() -> void:
+	$Petri.play(&"idle")
 	$OldMan.sprite_frames.set_animation_loop(&"scared", false)
 	$OldMan.play(&"idle")
 	AudioManager.play_sound(emergency_button_press)
