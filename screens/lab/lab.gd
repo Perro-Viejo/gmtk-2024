@@ -23,7 +23,6 @@ var current_world := 1
 
 
 func _ready() -> void:
-	prints(">>>", ($TVScreen.texture as ViewportTexture).viewport_path)
 	if ($TVScreen.texture as ViewportTexture).viewport_path != NodePath("TV"):
 		($TVScreen.texture as ViewportTexture).viewport_path = NodePath("TV")
 	
