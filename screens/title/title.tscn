@@ -111,7 +111,7 @@ _data = {
 }
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ctg6g"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("TV")
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_00htr")

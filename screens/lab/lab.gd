@@ -6,9 +6,14 @@ extends Node2D
 @export var world_3: AudioStreamOggVorbis = null
 @export var alarm_start: AudioStreamOggVorbis = null
 @export var alarm_loop: AudioStreamOggVorbis = null
+@export var petri_start: AudioStreamOggVorbis = null
+@export var petri_loop: AudioStreamOggVorbis = null
+@export var petri_end: AudioStreamOggVorbis = null
 @export var instrument_change: AudioStreamOggVorbis = null
 @export var transition_end: AudioStreamOggVorbis = null
 @export var emergency_button_press: AudioStreamOggVorbis = null
+@export var button_show: AudioStreamOggVorbis = null
+@export var button_hide: AudioStreamOggVorbis = null
 
 var current_world := 1
 
@@ -67,10 +72,13 @@ func _start_keyboards() -> void:
 
 func _on_scale_achieved() -> void:
 	$Petri.play(&"shaking")
+	AudioManager.play_sound(petri_start)
+	AudioManager.play_sound(petri_loop)
 	var prev_world: Sprite2D = tv.worlds.get_child(current_world - 1)
 	current_world += 1
 	var next_world: Sprite2D = tv.worlds.get_child(current_world - 1)
 	audio_stream_player.stream = self["world_%d" % (current_world - 1)]
+	await get_tree().create_timer(1.0).timeout
 	audio_stream_player.play()
 	
 	var worlds_tween := create_tween()
@@ -84,6 +92,8 @@ func _on_scale_achieved() -> void:
 	await audio_stream_player.finished
 	
 	$Petri.play(&"idle")
+	AudioManager.play_sound(petri_end)
+	AudioManager.stop_sound(petri_loop)
 	if current_world == 4:
 		return
 	
@@ -106,6 +116,7 @@ func _on_scale_failed() -> void:
 	
 	restart_btn.disabled = false
 	var restart_btn_tween := create_tween()
+	AudioManager.play_sound(button_show)
 	restart_btn_tween.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	restart_btn_tween.tween_property(restart_btn, "scale", Vector2.ONE, 1.0).from(Vector2.ZERO)
 	
@@ -128,6 +139,7 @@ func _restart() -> void:
 	bulb_tween.tween_property(bulb, "position:y", -178, 0.5)
 	
 	var restart_btn_tween := create_tween()
+	AudioManager.play_sound(button_hide)
 	restart_btn_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	restart_btn_tween.tween_property(restart_btn, "scale", Vector2.ZERO, 0.3).from(Vector2.ONE)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=235 format=3 uid="uid://dwsdtsu6jb1vf"]
+[gd_scene load_steps=240 format=3 uid="uid://dwsdtsu6jb1vf"]
 
 [ext_resource type="PackedScene" uid="uid://c7wlvpnwknc67" path="res://screens/lab/components/keyboard/keyboard_1/keyboard_1.tscn" id="1_7s0b5"]
 [ext_resource type="Script" path="res://screens/lab/lab.gd" id="1_wxqax"]
@@ -12,17 +12,22 @@
 [ext_resource type="PackedScene" uid="uid://8laiyjpi4ses" path="res://screens/lab/components/keyboard/keyboard_2/keyboard_2.tscn" id="6_eurmt"]
 [ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="6_qayd7"]
 [ext_resource type="AudioStream" uid="uid://bbf804aq5ic30" path="res://screens/lab/audio/sfx_instrument_change.ogg" id="7_a3g4i"]
+[ext_resource type="AudioStream" uid="uid://dcfw57x3psii2" path="res://screens/lab/audio/sfx_petri_evolve_start.ogg" id="7_tws5m"]
 [ext_resource type="AudioStream" uid="uid://d2qbl64m64gg4" path="res://screens/lab/audio/sfx_emergencyButton_press.ogg" id="7_xi0hm"]
 [ext_resource type="AudioStream" uid="uid://d3sfblii4pik7" path="res://screens/lab/audio/sfx_transition_end.ogg" id="8_bgcka"]
+[ext_resource type="AudioStream" uid="uid://cy187k6ptthx3" path="res://screens/lab/audio/sfx_petri_evolve_lp.ogg" id="8_t6x0e"]
 [ext_resource type="Texture2D" uid="uid://73oqyd0djfbp" path="res://screens/lab/images/piano_1.png" id="9_7mnmn"]
 [ext_resource type="Texture2D" uid="uid://ih24ncgufnpw" path="res://screens/lab/images/piano_mask.png" id="9_28h45"]
+[ext_resource type="AudioStream" uid="uid://b3s40hck3ty0d" path="res://screens/lab/audio/sfx_petri_evolve_end.ogg" id="9_74wwn"]
 [ext_resource type="Script" path="res://screens/lab/components/piano.gd" id="10_2vixb"]
 [ext_resource type="Texture2D" uid="uid://dccbk50nmb0xy" path="res://screens/lab/images/piano_2.png" id="10_ek2at"]
 [ext_resource type="Texture2D" uid="uid://mdj6i84q5w1w" path="res://screens/lab/images/btn_restart_normal.png" id="10_x8yb4"]
 [ext_resource type="Texture2D" uid="uid://cijxyegmn20bg" path="res://screens/lab/images/piano_3.png" id="11_tqxmd"]
 [ext_resource type="PackedScene" uid="uid://byvli4mj43l1q" path="res://screens/lab/components/keyboard/keyboard_3/keyboard_3.tscn" id="11_u67hf"]
+[ext_resource type="AudioStream" uid="uid://blkdg2g6685hq" path="res://screens/lab/audio/sfx_button_show.ogg" id="13_5rhim"]
 [ext_resource type="PackedScene" uid="uid://c0joqnxdyiwc5" path="res://screens/lab/components/old_man/old_man.tscn" id="13_65728"]
 [ext_resource type="Texture2D" uid="uid://b2r0wjwcc77xq" path="res://screens/lab/images/door_left.png" id="13_x05bb"]
+[ext_resource type="AudioStream" uid="uid://vcy7wfimmsfc" path="res://screens/lab/audio/sfx_button_hide.ogg" id="14_3s7nu"]
 [ext_resource type="Texture2D" uid="uid://cfg35v58v62en" path="res://screens/lab/images/door_right.png" id="14_g7bwm"]
 [ext_resource type="Texture2D" uid="uid://b4bqi61du37cu" path="res://screens/lab/images/bulb.png" id="20_4dfl7"]
 [ext_resource type="Texture2D" uid="uid://dk75xnlaoxe3" path="res://screens/lab/images/pipes.png" id="22_hptg4"]
@@ -482,6 +487,7 @@ animations = [{
 }]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t45nd"]
+random_pitch = 2.0
 streams_count = 3
 stream_0/stream = ExtResource("26_iebao")
 stream_1/stream = ExtResource("27_sbllf")
@@ -1353,12 +1359,16 @@ animations = [{
 }]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_quhom"]
+random_pitch = 3.0
+random_volume_offset_db = 2.0
 streams_count = 3
 stream_0/stream = ExtResource("33_426gy")
 stream_1/stream = ExtResource("34_565eu")
 stream_2/stream = ExtResource("35_4phe7")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qyq6t"]
+random_pitch = 1.5
+random_volume_offset_db = 3.0
 streams_count = 3
 stream_0/stream = ExtResource("37_3mvwi")
 stream_1/stream = ExtResource("38_qgqqb")
@@ -1546,9 +1556,14 @@ world_2 = ExtResource("3_uwk6q")
 world_3 = ExtResource("4_bprpm")
 alarm_start = ExtResource("5_8u7rj")
 alarm_loop = ExtResource("6_5lb2c")
+petri_start = ExtResource("7_tws5m")
+petri_loop = ExtResource("8_t6x0e")
+petri_end = ExtResource("9_74wwn")
 instrument_change = ExtResource("7_a3g4i")
 transition_end = ExtResource("8_bgcka")
 emergency_button_press = ExtResource("7_xi0hm")
+button_show = ExtResource("13_5rhim")
+button_hide = ExtResource("14_3s7nu")
 
 [node name="TV" parent="." instance=ExtResource("5_dyjrm")]
 handle_input_locally = false
