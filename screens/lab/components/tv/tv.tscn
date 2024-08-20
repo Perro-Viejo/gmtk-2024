@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw541k65cpco4"]
+[gd_scene load_steps=10 format=3 uid="uid://bw541k65cpco4"]
 
 [ext_resource type="PackedScene" uid="uid://bwfci2svxw801" path="res://screens/lab/components/world/world.tscn" id="1_if0g4"]
 [ext_resource type="Script" path="res://screens/lab/components/tv/tv.gd" id="1_toqhs"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://if5u2odun4fr" path="res://screens/lab/audio/sfx_tv_static.ogg" id="3_ckxsn"]
 [ext_resource type="AudioStream" uid="uid://bmu8khiktnvb7" path="res://screens/lab/audio/sfx_tv_switch_up.ogg" id="4_v5fn1"]
 [ext_resource type="AudioStream" uid="uid://ckhlpawe5k22r" path="res://screens/lab/audio/sfx_tv_switch_down.ogg" id="5_1o81w"]
+[ext_resource type="PackedScene" uid="uid://dnsvuuuvryabg" path="res://screens/title/credits/credits_scene.tscn" id="8_2yakg"]
+[ext_resource type="Texture2D" uid="uid://cs8aisoldjvpq" path="res://screens/lab/components/tv/images/world_0.png" id="9_drjxv"]
 
 [node name="TV" type="SubViewport"]
 size = Vector2i(1920, 1080)
@@ -18,4 +20,25 @@ tv_off = ExtResource("5_1o81w")
 
 [node name="Worlds" parent="." instance=ExtResource("1_if0g4")]
 
+[node name="CreditsScene" parent="." instance=ExtResource("8_2yakg")]
+visible = false
+
+[node name="Credits" parent="CreditsScene/Credits" index="0"]
+position = Vector2(-23.762, -1693.37)
+rotation = 6.28319
+scale = Vector2(0.9, 0.9)
+
+[node name="Mateo" parent="CreditsScene/Credits" index="1"]
+position = Vector2(414.582, 897.03)
+
+[node name="PerroViejo" parent="CreditsScene/Credits" index="4"]
+scale = Vector2(1.00069e-05, 1.00069e-05)
+
 [node name="PostProcessingStack" parent="." instance=ExtResource("2_gkibi")]
+
+[node name="EmptyWorld" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("9_drjxv")
+
+[editable path="CreditsScene"]

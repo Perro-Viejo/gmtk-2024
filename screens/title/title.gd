@@ -9,9 +9,13 @@ extends Node2D
 @onready var start_btn: Button = %StartBtn
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var credits_btn: Button = %CreditsBtn
+@onready var tv: SubViewport = $TV
 
 
 func _ready() -> void:
+	if ($TVScreen.texture as ViewportTexture).viewport_path == NodePath("."):
+		($TVScreen.texture as ViewportTexture).viewport_path = $TV.get_path()
+	tv.show_empty_world()
 	start_btn.pressed.connect(_start)
 	AudioManager.play_sound(amb)
 	
@@ -19,18 +23,15 @@ func _ready() -> void:
 
 
 func _start() -> void:
+	tv.set_static(true)
 	animation_player.play("zoom_out")
 	AudioManager.play_sound(transition)
 	await animation_player.animation_finished
+	
+	tv.set_static(false)
 	get_tree().change_scene_to_file("res://screens/lab/lab.tscn")
 
 
 func _show_credits() -> void:
 	AudioManager.play_sound(turn_switch)
-	if not $Credits.visible:
-		$Credits.show()
-		animation_player.play("Credits")
-		#AudioManager.play_sound(credits)
-	else:
-		#AudioManager.stop_sound(credits)
-		$Credits.hide()
+	tv.play_credits()

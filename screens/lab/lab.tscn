@@ -30,15 +30,15 @@
 [ext_resource type="Texture2D" uid="uid://dwxk5pde3dr76" path="res://screens/lab/images/boxes.png" id="26_kj4to"]
 [ext_resource type="Texture2D" uid="uid://du8lfavp711tc" path="res://screens/lab/images/petri.png" id="29_48au7"]
 
-[sub_resource type="Gradient" id="Gradient_t8op1"]
+[sub_resource type="Gradient" id="Gradient_d3l2y"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_8jic3"]
-gradient = SubResource("Gradient_t8op1")
+gradient = SubResource("Gradient_d3l2y")
 width = 1920
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qt8y3"]
-viewport_path = NodePath("TV")
+viewport_path = NodePath(".")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b7kp"]
 atlas = ExtResource("20_4dfl7")
