@@ -1,4 +1,4 @@
-[gd_scene load_steps=221 format=3 uid="uid://dwsdtsu6jb1vf"]
+[gd_scene load_steps=235 format=3 uid="uid://dwsdtsu6jb1vf"]
 
 [ext_resource type="PackedScene" uid="uid://c7wlvpnwknc67" path="res://screens/lab/components/keyboard/keyboard_1/keyboard_1.tscn" id="1_7s0b5"]
 [ext_resource type="Script" path="res://screens/lab/lab.gd" id="1_wxqax"]
@@ -11,7 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://8akyqdamak7a" path="res://screens/lab/audio/sfx_alarm_lp.ogg" id="6_5lb2c"]
 [ext_resource type="PackedScene" uid="uid://8laiyjpi4ses" path="res://screens/lab/components/keyboard/keyboard_2/keyboard_2.tscn" id="6_eurmt"]
 [ext_resource type="FontFile" uid="uid://vpmpmarm0v2" path="res://common/fonts/more_15.ttf" id="6_qayd7"]
+[ext_resource type="AudioStream" uid="uid://bbf804aq5ic30" path="res://screens/lab/audio/sfx_instrument_change.ogg" id="7_a3g4i"]
 [ext_resource type="AudioStream" uid="uid://d2qbl64m64gg4" path="res://screens/lab/audio/sfx_emergencyButton_press.ogg" id="7_xi0hm"]
+[ext_resource type="AudioStream" uid="uid://d3sfblii4pik7" path="res://screens/lab/audio/sfx_transition_end.ogg" id="8_bgcka"]
 [ext_resource type="Texture2D" uid="uid://73oqyd0djfbp" path="res://screens/lab/images/piano_1.png" id="9_7mnmn"]
 [ext_resource type="Texture2D" uid="uid://ih24ncgufnpw" path="res://screens/lab/images/piano_mask.png" id="9_28h45"]
 [ext_resource type="Script" path="res://screens/lab/components/piano.gd" id="10_2vixb"]
@@ -28,9 +30,18 @@
 [ext_resource type="Script" path="res://screens/lab/components/lab_hotspot.gd" id="23_ovxvg"]
 [ext_resource type="Texture2D" uid="uid://dx2q5355skkbj" path="res://screens/lab/images/plate_flashing.png" id="24_qu6w1"]
 [ext_resource type="Texture2D" uid="uid://chdml4qq6ccl6" path="res://screens/lab/images/plate_shaking.png" id="25_6svvu"]
+[ext_resource type="AudioStream" uid="uid://bxu7edihdru5h" path="res://screens/lab/audio/sfx_interact_boxes_01.ogg" id="26_iebao"]
 [ext_resource type="Texture2D" uid="uid://dwxk5pde3dr76" path="res://screens/lab/images/boxes.png" id="26_kj4to"]
+[ext_resource type="AudioStream" uid="uid://dxc7o0k6djbx2" path="res://screens/lab/audio/sfx_interact_boxes_02.ogg" id="27_sbllf"]
+[ext_resource type="AudioStream" uid="uid://de8es5aw8grh0" path="res://screens/lab/audio/sfx_interact_boxes_03.ogg" id="28_1ogeu"]
 [ext_resource type="Texture2D" uid="uid://du8lfavp711tc" path="res://screens/lab/images/petri.png" id="29_48au7"]
 [ext_resource type="Texture2D" uid="uid://bow8koitrxft8" path="res://screens/lab/images/bg_rats.png" id="29_c5v6m"]
+[ext_resource type="AudioStream" uid="uid://ctfv0hc28j7xi" path="res://screens/lab/audio/sfx_interact_tubes_01.ogg" id="33_426gy"]
+[ext_resource type="AudioStream" uid="uid://dn2dkdtjfjwr3" path="res://screens/lab/audio/sfx_interact_tubes_02.ogg" id="34_565eu"]
+[ext_resource type="AudioStream" uid="uid://buqlpic1m2any" path="res://screens/lab/audio/sfx_interact_tubes_03.ogg" id="35_4phe7"]
+[ext_resource type="AudioStream" uid="uid://bc8po7tcghvt8" path="res://screens/lab/audio/sfx_interact_horn_01.ogg" id="37_3mvwi"]
+[ext_resource type="AudioStream" uid="uid://cxwnqsw23rq27" path="res://screens/lab/audio/sfx_interact_horn_02.ogg" id="38_qgqqb"]
+[ext_resource type="AudioStream" uid="uid://b8esa81kt6aw2" path="res://screens/lab/audio/sfx_interact_horn_03.ogg" id="39_d0prv"]
 
 [sub_resource type="Gradient" id="Gradient_d3l2y"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -469,6 +480,12 @@ animations = [{
 "name": &"default",
 "speed": 60.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t45nd"]
+streams_count = 3
+stream_0/stream = ExtResource("26_iebao")
+stream_1/stream = ExtResource("27_sbllf")
+stream_2/stream = ExtResource("28_1ogeu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd2pb"]
 atlas = ExtResource("24_qu6w1")
@@ -1335,6 +1352,89 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_quhom"]
+streams_count = 3
+stream_0/stream = ExtResource("33_426gy")
+stream_1/stream = ExtResource("34_565eu")
+stream_2/stream = ExtResource("35_4phe7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qyq6t"]
+streams_count = 3
+stream_0/stream = ExtResource("37_3mvwi")
+stream_1/stream = ExtResource("38_qgqqb")
+stream_2/stream = ExtResource("39_d0prv")
+
+[sub_resource type="Animation" id="Animation_nj0iy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BgRats:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BgRats:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BgRats:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BgRats:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_p2q4j"]
 resource_name = "ending"
 length = 30.0
@@ -1418,76 +1518,19 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.35, 0.35)]
 }
-
-[sub_resource type="Animation" id="Animation_nj0iy"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BgRats:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BgRats:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BgRats:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BgRats:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Camera2D:zoom")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(9.03333),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Camera2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [{
+"args": [],
+"method": &"play_end_transition"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2rsfp"]
@@ -1503,6 +1546,8 @@ world_2 = ExtResource("3_uwk6q")
 world_3 = ExtResource("4_bprpm")
 alarm_start = ExtResource("5_8u7rj")
 alarm_loop = ExtResource("6_5lb2c")
+instrument_change = ExtResource("7_a3g4i")
+transition_end = ExtResource("8_bgcka")
 emergency_button_press = ExtResource("7_xi0hm")
 
 [node name="TV" parent="." instance=ExtResource("5_dyjrm")]
@@ -1600,6 +1645,7 @@ texture = ExtResource("26_kj4to")
 
 [node name="Hotspot" type="Area2D" parent="Boxes"]
 script = ExtResource("23_ovxvg")
+sfx = SubResource("AudioStreamRandomizer_t45nd")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boxes/Hotspot"]
 polygon = PackedVector2Array(-67, 58, -70, -75, 11, -85, 72, -67, 69, 67, -7, 85)
@@ -1615,6 +1661,7 @@ texture = ExtResource("22_hptg4")
 
 [node name="Hotspot" type="Area2D" parent="Pipes"]
 script = ExtResource("23_ovxvg")
+sfx = SubResource("AudioStreamRandomizer_quhom")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pipes/Hotspot"]
 position = Vector2(-771.9, -203.2)
@@ -1634,6 +1681,7 @@ texture = ExtResource("23_kr4vn")
 
 [node name="Hotspot" type="Area2D" parent="Speaker"]
 script = ExtResource("23_ovxvg")
+sfx = SubResource("AudioStreamRandomizer_qyq6t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Speaker/Hotspot"]
 position = Vector2(-141, -341)

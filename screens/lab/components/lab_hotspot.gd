@@ -1,6 +1,6 @@
 extends Hotspot
 
-@export var sfx: AudioStreamOggVorbis = null
+@export var sfx: AudioStreamRandomizer = null
 @export var loops := 3
 @export var x_offset := 4
 @export var shake_step_time := 0.03
@@ -14,7 +14,7 @@ func _on_clicked() -> void:
 		return
 	
 	if sfx:
-		AudioManager.play_sound(sfx, get_parent().name)
+		AudioManager.play_sound(sfx.get_stream(randi_range(0, sfx.streams_count - 1)), get_parent().name)
 	
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC).set_loops(loops)

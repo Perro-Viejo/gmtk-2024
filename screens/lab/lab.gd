@@ -6,6 +6,8 @@ extends Node2D
 @export var world_3: AudioStreamOggVorbis = null
 @export var alarm_start: AudioStreamOggVorbis = null
 @export var alarm_loop: AudioStreamOggVorbis = null
+@export var instrument_change: AudioStreamOggVorbis = null
+@export var transition_end: AudioStreamOggVorbis = null
 @export var emergency_button_press: AudioStreamOggVorbis = null
 
 var current_world := 1
@@ -135,6 +137,8 @@ func _restart() -> void:
 func _hide_keyboard() -> void:
 	# Open the door
 	var door_tween := create_tween()
+	if current_world != 4:
+		AudioManager.play_sound(instrument_change)
 	door_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_parallel()
 	door_tween.tween_property(left_door, "position:x", -85, 0.8)
 	door_tween.tween_property(right_door, "position:x", 132, 0.8)
@@ -164,3 +168,5 @@ func _show_keyboard() -> void:
 	door_tween.tween_property(left_door, "position:x", 0, 0.8)
 	door_tween.tween_property(right_door, "position:x", 0, 0.8)
 	await door_tween.finished
+func play_end_transition() -> void:
+	AudioManager.play_sound(transition_end)
