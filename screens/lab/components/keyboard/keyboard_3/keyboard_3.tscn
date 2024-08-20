@@ -33,6 +33,7 @@ texture = ExtResource("4_g8sd4")
 note = ExtResource("4_5i3mi")
 
 [node name="CollisionPolygon2D" parent="Keys/Key/Area2D" index="0"]
+visible = false
 position = Vector2(-5, -20)
 polygon = PackedVector2Array(-37, -39, -37, 79, 47, 79, 46, -39)
 
@@ -43,6 +44,7 @@ note = ExtResource("5_wljcx")
 order = 2
 
 [node name="CollisionPolygon2D" parent="Keys/Key2/Area2D" index="0"]
+visible = false
 position = Vector2(-48, -21)
 polygon = PackedVector2Array(4, -39, 3, 79, 83, 79, 83, -39)
 
@@ -53,6 +55,7 @@ note = ExtResource("6_gsh2w")
 order = 3
 
 [node name="CollisionPolygon2D" parent="Keys/Key3/Area2D" index="0"]
+visible = false
 position = Vector2(-30, -21)
 polygon = PackedVector2Array(-10, -38, -11, 79, 71, 79, 71, -38)
 
@@ -63,6 +66,7 @@ note = ExtResource("7_wbano")
 order = 4
 
 [node name="CollisionPolygon2D" parent="Keys/Key4/Area2D" index="0"]
+visible = false
 position = Vector2(37, -20)
 polygon = PackedVector2Array(-77, -37, -79, 79, 5, 79, 4, -37)
 
@@ -73,6 +77,7 @@ note = ExtResource("8_u53qg")
 order = 5
 
 [node name="CollisionPolygon2D" parent="Keys/Key5/Area2D" index="0"]
+visible = false
 position = Vector2(-16, -20)
 polygon = PackedVector2Array(-26, -38, -27, 79, 57, 79, 58, -38)
 
@@ -83,6 +88,7 @@ note = ExtResource("9_tht1y")
 order = 6
 
 [node name="CollisionPolygon2D" parent="Keys/Key6/Area2D" index="0"]
+visible = false
 position = Vector2(20, -19)
 polygon = PackedVector2Array(-63, -38, -64, 79, 21, 79, 19, -37)
 

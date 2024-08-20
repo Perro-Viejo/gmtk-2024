@@ -18,7 +18,7 @@ resource_name = "Credits"
 length = 34.0
 tracks/0/type = "audio"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("AudioStreamPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -329,6 +329,7 @@ scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_jyg13")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sksxq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

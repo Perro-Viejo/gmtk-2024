@@ -35,6 +35,12 @@ func set_static(show: bool) -> void:
 		AudioManager.play_sound(tv_off)
 		$Worlds.hide()
 		$CreditsScene/AnimationPlayer.stop()
+		
+		if OS.has_feature("web"):
+			prints(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+			await get_tree().create_timer(0.1).timeout
+			$CreditsScene/AudioStreamPlayer.stop()
+		
 		$CreditsScene.hide()
 		$EmptyWorld.hide()
 		$PostProcessingStack.find_child("Noise").show()
@@ -53,10 +59,12 @@ func show_empty_world() -> void:
 
 func play_credits() -> void:
 	if $CreditsScene.visible:
+		$CreditsScene/AudioStreamPlayer.stop()
 		$CreditsScene/AnimationPlayer.stop()
 		$CreditsScene.hide()
 		$EmptyWorld.show()
 	else:
 		$CreditsScene.show()
 		$EmptyWorld.hide()
+		$CreditsScene/AudioStreamPlayer.play()
 		$CreditsScene/AnimationPlayer.play("Credits")
